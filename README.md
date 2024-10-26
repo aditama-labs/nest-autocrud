@@ -41,8 +41,18 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
+# build package
+$ npm run build:lib:autocrud
+```
+
+## Generate new library
+
+```bash
+# 1. Generate new libs
+$ nest g lib <name>
+# 2. Modify the generated library tsconfig.lib.json like existing one
+# 3. Add the build tools to the package.json following the existing one
+# 4. Register dist to index.js
 ```
 
 ## Run tests
