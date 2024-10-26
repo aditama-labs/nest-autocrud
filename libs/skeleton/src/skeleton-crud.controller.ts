@@ -2,14 +2,16 @@ import { Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
 import { IPaginationEntity } from './entities/pagination.entity';
 
-export class SkeletonCRUDController<T> implements ISkeletonCRUDController<T> {
+export class SkeletonCRUDController<T, E>
+  implements ISkeletonCRUDController<T, E>
+{
   @Post()
   async create(): Promise<T> {
     throw new Error('Method not implemented.');
   }
 
   @Get(':id')
-  async readSelected(@Param('id') id): Promise<T> {
+  async readSelected(@Param('id') id: E): Promise<T> {
     throw new Error('Method not implemented.');
   }
 

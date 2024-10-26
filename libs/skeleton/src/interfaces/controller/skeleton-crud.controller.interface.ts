@@ -1,8 +1,8 @@
 import { IPaginationEntity } from '@autocrud/skeleton/entities/pagination.entity';
 
-export interface ISkeletonCRUDController<T> {
+export interface ISkeletonCRUDController<T, E> {
   create(): Promise<T>;
-  readSelected(id): Promise<T>;
+  readSelected(id: E): Promise<T>;
   readPagination(): Promise<IPaginationEntity<T>>;
   readEntire(): Promise<T[]>;
   updatePartial(): Promise<T>;
