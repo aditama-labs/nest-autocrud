@@ -1,6 +1,6 @@
 import { ISkeletonProcess } from '@autocrud/skeleton/interfaces/skeleton-process.interface';
 
-export abstract class BatchDeleteProcess implements ISkeletonProcess {
+export abstract class PartialUpdateProcess implements ISkeletonProcess {
   abstract initialization();
   abstract before();
   abstract begin();

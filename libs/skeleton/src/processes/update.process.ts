@@ -1,11 +1,11 @@
 import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
 
-export abstract class UpdateProcess<T, R> implements ISkeletonProcess<T, R> {
-  abstract initialization(): T;
-  abstract before(): T;
-  abstract begin(): T;
-  abstract process(): T;
-  abstract end(): T;
-  abstract after(): T;
-  abstract result(): R;
+export abstract class UpdateProcess implements ISkeletonProcess {
+  abstract initialization();
+  abstract before();
+  abstract begin();
+  abstract process();
+  abstract end();
+  abstract after();
+  abstract result();
 }

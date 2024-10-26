@@ -1,10 +1,10 @@
-export interface ISkeletonProcess<T, R> {
-  initialization(): T;
-  before(): T;
-  begin(): T;
-  process(): T;
-  end(): T;
-  after(): T;
+export interface ISkeletonProcess {
+  initialization();
+  before();
+  begin();
+  process();
+  end();
+  after();
 
-  result(): R;
+  result();
 }

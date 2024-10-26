@@ -1,6 +1,6 @@
-import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
+import { ReadProcess } from '@autocrud/skeleton/processes/read.process';
 
-export abstract class CreateProcess implements ISkeletonProcess {
+export abstract class PrismaReadProcess implements ReadProcess {
   abstract initialization();
   abstract before();
   abstract begin();

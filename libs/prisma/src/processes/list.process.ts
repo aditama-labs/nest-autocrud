@@ -1,6 +1,6 @@
-import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
+import { ListProcess } from '@autocrud/skeleton/processes/list.process';
 
-export abstract class CreateProcess implements ISkeletonProcess {
+export abstract class PrismaListProcess implements ListProcess {
   abstract initialization();
   abstract before();
   abstract begin();

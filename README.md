@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Todo
+
+- [] Create custom generic for Prisma ORM Support [#5273](https://github.com/prisma/prisma/issues/5273)
+
 ## Project setup
 
 ```bash
