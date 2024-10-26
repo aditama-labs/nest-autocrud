@@ -1,30 +1,11 @@
-import { Observable, of } from 'rxjs';
-import { SkeletonProcess } from '../interfaces/skeleton-process.interface';
+import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
 
-export class CreateProcess implements SkeletonProcess {
-  constructor() {}
-
-  initialization(): Observable<void> {
-    return of(undefined);
-  }
-
-  before(): Observable<void> {
-    return of(undefined);
-  }
-
-  begin(): Observable<void> {
-    return of(undefined);
-  }
-
-  process(): Observable<void> {
-    return of(undefined);
-  }
-
-  end(): Observable<void> {
-    return of(undefined);
-  }
-
-  after(): Observable<void> {
-    return of(undefined);
-  }
+export abstract class CreateProcess<T, R> implements ISkeletonProcess<T, R> {
+  abstract initialization(): T;
+  abstract before(): T;
+  abstract begin(): T;
+  abstract process(): T;
+  abstract end(): T;
+  abstract after(): T;
+  abstract result(): R;
 }

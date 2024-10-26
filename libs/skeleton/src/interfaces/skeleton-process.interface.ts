@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs';
+export interface ISkeletonProcess<T, R> {
+  initialization(): T;
+  before(): T;
+  begin(): T;
+  process(): T;
+  end(): T;
+  after(): T;
 
-export interface SkeletonProcess {
-  initialization(): Observable<void>;
-  before(): Observable<void>;
-  begin(): Observable<void>;
-  process(): Observable<void>;
-  end(): Observable<void>;
-  after(): Observable<void>;
+  result(): R;
 }
