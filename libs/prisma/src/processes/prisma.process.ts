@@ -1,10 +1,13 @@
 import { DefaultProcess } from '@autocrud/skeleton/processes/default.process';
+import { Inject } from '@nestjs/common';
+import { PRISMA_DELEGATE } from '../constants';
 
 export class PrismaProcess extends DefaultProcess {
-  protected delegate;
-
-  setDelegate(delegate) {
-    this.delegate = delegate;
+  constructor(
+    @Inject(PRISMA_DELEGATE)
+    private delegate: any,
+  ) {
+    super();
   }
 
   get getDelegate() {

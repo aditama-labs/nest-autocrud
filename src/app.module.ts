@@ -1,11 +1,20 @@
-import { PrismaModule } from '@autocrud/prisma';
+import { PrismaModule, PrismaService } from '@autocrud/prisma';
+import { PRISMA_DELEGATE } from '@autocrud/prisma/constants';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+const delegateFactory = {
+  provide: PRISMA_DELEGATE,
+  useFactory: (prisma: PrismaService) => {
+    return prisma.user;
+  },
+  inject: [PrismaService],
+};
+
 @Module({
   imports: [PrismaModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, delegateFactory],
 })
 export class AppModule {}
