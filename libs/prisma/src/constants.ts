@@ -1,1 +1,1 @@
-export declare const PRISMA_DELEGATE = 'PRISMA_DELEGATE';
+export const PRISMA_DELEGATE = 'PRISMA_DELEGATE';
