@@ -3,16 +3,16 @@ import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.c
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
-    private readonly createProcess,
-    private readonly readProcess,
-    private readonly readPaginationProcess,
-    private readonly readEntireProcess,
-    private readonly updatePartialProcess,
-    private readonly updateBatchProcess,
-    private readonly updateEntireProcess,
-    private readonly updateEntireBatchProcess,
-    private readonly deleteProcess,
-    private readonly deleteBatchProcess,
+    public readonly createProcess,
+    public readonly readProcess,
+    public readonly readPaginationProcess,
+    public readonly readEntireProcess,
+    public readonly updatePartialProcess,
+    public readonly updateBatchProcess,
+    public readonly updateEntireProcess,
+    public readonly updateEntireBatchProcess,
+    public readonly deleteProcess,
+    public readonly deleteBatchProcess,
   ) {}
 
   @Post()
