@@ -1,11 +1,3 @@
-import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
+import { DefaultProcess } from './default.process';
 
-export class CreateProcess implements ISkeletonProcess {
-  async initialization(): Promise<any> {}
-  async before(): Promise<any> {}
-  async begin(): Promise<any> {}
-  async process(): Promise<any> {}
-  async end(): Promise<any> {}
-  async after(): Promise<any> {}
-  async result(): Promise<any> {}
-}
+export class CreateProcess extends DefaultProcess {}

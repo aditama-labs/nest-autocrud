@@ -4,12 +4,12 @@ export class DefaultExecutor {
   constructor(private process: ISkeletonProcess) {}
 
   async execute(): Promise<void> {
-    this.process.initialization();
-    this.process.before();
-    this.process.begin();
-    this.process.process();
-    this.process.end();
-    this.process.after();
+    await this.process.initialization();
+    await this.process.before();
+    await this.process.begin();
+    await this.process.process();
+    await this.process.end();
+    await this.process.after();
   }
 
   getResult(): any {
