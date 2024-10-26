@@ -1,9 +1,25 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
     "declaration": true,
-    "outDir": "../../dist/libs/autocrud"
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": false,
+    "outDir": "../../dist/libs/autocrud",
+    "skipLibCheck": true,
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*spec.ts"
+  ]
 }
