@@ -23,6 +23,12 @@
       ],
       "@autocrud/skeleton/*": [
         "libs/skeleton/src/*"
+      ],
+      "@autocrud/prisma": [
+        "libs/prisma/src"
+      ],
+      "@autocrud/prisma/*": [
+        "libs/prisma/src/*"
       ]
     }
   }

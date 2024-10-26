@@ -12,6 +12,8 @@
   },
   "moduleNameMapper": {
     "@autocrud/skeleton/(.*)": "<rootDir>/../libs/skeleton/src/$1",
-    "@autocrud/skeleton": "<rootDir>/../libs/skeleton/src"
+    "@autocrud/skeleton": "<rootDir>/../libs/skeleton/src",
+    "@autocrud/prisma/(.*)": "<rootDir>/../libs/prisma/src/$1",
+    "@autocrud/prisma": "<rootDir>/../libs/prisma/src"
   }
 }
