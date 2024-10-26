@@ -1,4 +1,4 @@
-export interface StandardProcess {
+export interface SkeletonProcess {
   initialization(): void;
   before(): void;
   begin(): void;
