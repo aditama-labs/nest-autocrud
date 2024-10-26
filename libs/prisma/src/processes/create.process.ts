@@ -1,18 +1,17 @@
 import { CreateProcess } from '@autocrud/skeleton/processes/create.process';
-import { Prisma, PrismaClient } from '@prisma/client';
 
-export abstract class PrismaCreateProcess implements CreateProcess {
-  constructor(private readonly prisma: PrismaClient) {}
+export class PrismaCreateProcess implements CreateProcess {
+  initialization();
+  before();
+  begin();
 
-  abstract initialization(): T;
-  abstract before(): T;
-  abstract begin(): T;
   process(): T {
     this.prisma['asd'].create({
       data,
     });
   }
-  abstract end(): T;
-  abstract after(): T;
-  abstract result(): R;
+
+  end();
+  after();
+  result();
 }

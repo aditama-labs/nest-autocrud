@@ -1,6 +1,6 @@
-import { ISkeletonProcess } from '@autocrud/skeleton/interfaces/skeleton-process.interface';
+import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
 
-export class PrismaExecutor {
+export class DefaultExecutor {
   constructor(private process: ISkeletonProcess) {}
 
   async execute(): Promise<void> {
@@ -16,8 +16,8 @@ export class PrismaExecutor {
     return this.process.result();
   }
 
-  static async default(process: ISkeletonProcess): Promise<any> {
-    const executor = new PrismaExecutor(process);
+  static async bootstrap(process: ISkeletonProcess): Promise<any> {
+    const executor = new DefaultExecutor(process);
     await executor.execute();
     return executor.getResult();
   }

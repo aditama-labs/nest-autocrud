@@ -1,4 +1,5 @@
 import { Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { DefaultExecutor } from './executors/default.executor';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
@@ -16,52 +17,52 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   ) {}
 
   @Post()
-  async create() {
-    return this.createProcess.result();
+  async create(): Promise<any> {
+    return await DefaultExecutor.bootstrap(this.createProcess);
   }
 
   @Get(':id')
   async readSelected(@Param('id') id) {
-    return this.readProcess.result();
+    return await DefaultExecutor.bootstrap(this.readProcess);
   }
 
   @Get()
   async readPagination() {
-    return this.readPaginationProcess.result();
+    return await DefaultExecutor.bootstrap(this.readPaginationProcess);
   }
 
   @Get('list')
   async readEntire() {
-    return this.readEntireProcess.result();
+    return await DefaultExecutor.bootstrap(this.readEntireProcess);
   }
 
   @Patch()
   async updatePartial() {
-    return this.updatePartialProcess.result();
+    return await DefaultExecutor.bootstrap(this.updatePartialProcess);
   }
 
   @Patch('batch')
   async updatePartialBatch() {
-    return this.updateBatchProcess.result();
+    return await DefaultExecutor.bootstrap(this.updateBatchProcess);
   }
 
   @Put()
   async updateEntire() {
-    return this.updateEntireProcess.result();
+    return await DefaultExecutor.bootstrap(this.updateEntireProcess);
   }
 
   @Put('batch')
   async updateEntireBatch() {
-    return this.updateEntireBatchProcess.result();
+    return await DefaultExecutor.bootstrap(this.updateEntireBatchProcess);
   }
 
   @Delete()
   async deleteSelected() {
-    return this.deleteProcess.result();
+    return await DefaultExecutor.bootstrap(this.deleteProcess);
   }
 
   @Delete('batch')
   async deleteBatch() {
-    return this.deleteBatchProcess.result();
+    return await DefaultExecutor.bootstrap(this.deleteBatchProcess);
   }
 }
