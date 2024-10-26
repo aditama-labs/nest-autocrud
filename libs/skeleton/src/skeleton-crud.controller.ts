@@ -38,6 +38,7 @@ export class SkeletonCRUDController<
     private readonly deleteProcess: DP,
     private readonly deleteBatchProcess: DBP,
   ) {}
+
   @Post()
   async create(): Promise<T> {
     return this.createProcess.result();
