@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "build:lib:autocrud": "tsc -p libs/autocrud/tsconfig.lib.json",
+    "build:lib:skeleton": "tsc -p libs/skeleton/tsconfig.lib.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -72,7 +72,7 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@autocrud/autocrud(|/.*)$": "<rootDir>/libs/autocrud/src/$1"
+      "^@autocrud/skeleton(|/.*)$": "<rootDir>/libs/skeleton/src/$1"
     }
   }
 }

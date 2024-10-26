@@ -11,7 +11,7 @@
     "^.+\\.(t|j)s$": "ts-jest"
   },
   "moduleNameMapper": {
-    "@autocrud/autocrud/(.*)": "<rootDir>/../libs/autocrud/src/$1",
-    "@autocrud/autocrud": "<rootDir>/../libs/autocrud/src"
+    "@autocrud/skeleton/(.*)": "<rootDir>/../libs/skeleton/src/$1",
+    "@autocrud/skeleton": "<rootDir>/../libs/skeleton/src"
   }
 }

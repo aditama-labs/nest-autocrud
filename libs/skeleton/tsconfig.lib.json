@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": false,
-    "outDir": "../../dist/libs/autocrud",
+    "outDir": "../../dist/libs/skeleton",
     "skipLibCheck": true,
   },
   "include": [

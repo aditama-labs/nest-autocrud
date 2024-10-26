@@ -18,11 +18,11 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@autocrud/autocrud": [
-        "libs/autocrud/src"
+      "@autocrud/skeleton": [
+        "libs/skeleton/src"
       ],
-      "@autocrud/autocrud/*": [
-        "libs/autocrud/src/*"
+      "@autocrud/skeleton/*": [
+        "libs/skeleton/src/*"
       ]
     }
   }

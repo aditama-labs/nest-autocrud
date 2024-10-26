@@ -7,13 +7,13 @@
     "webpack": true
   },
   "projects": {
-    "autocrud": {
+    "skeleton": {
       "type": "library",
-      "root": "libs/autocrud",
+      "root": "libs/skeleton",
       "entryFile": "index",
-      "sourceRoot": "libs/autocrud/src",
+      "sourceRoot": "libs/skeleton/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/autocrud/tsconfig.lib.json"
+        "tsConfigPath": "libs/skeleton/tsconfig.lib.json"
       }
     }
   }

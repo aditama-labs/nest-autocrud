@@ -1,6 +1,6 @@
 import { Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 
-export class AutoCRUDController {
+export class SkeletonCRUDController {
   @Post()
   create() {}
 
