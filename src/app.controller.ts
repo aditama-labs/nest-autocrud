@@ -1,11 +1,5 @@
-import { PrismaCRUDController } from '@autocrud/prisma/prisma-crud.controller';
+import { SkeletonCRUDController } from '@autocrud/skeleton';
 import { Controller } from '@nestjs/common';
 
 @Controller('hello')
-export class AppController extends PrismaCRUDController {
-  constructor() {}
-
-  // Read(): void {
-  //   console.log(this.appService.getHello());
-  // }
-}
+export class AppController extends SkeletonCRUDController {}

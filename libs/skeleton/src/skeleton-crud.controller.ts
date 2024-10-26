@@ -1,18 +1,40 @@
-import { Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { Delete, Get, Inject, Param, Patch, Post, Put } from '@nestjs/common';
+import {
+  CREATE_PROCESS,
+  DELETE_BATCH_PROCESS,
+  DELETE_PROCESS,
+  READ_ENTIRE_PROCESS,
+  READ_PAGINATION_PROCESS,
+  READ_PROCESS,
+  UPDATE_BATCH_PROCESS,
+  UPDATE_ENTIRE_BATCH_PROCESS,
+  UPDATE_ENTIRE_PROCESS,
+  UPDATE_PARTIAL_PROCESS,
+} from './constants';
 import { DefaultExecutor } from './executors/default.executor';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
+    @Inject(CREATE_PROCESS)
     public readonly createProcess,
+    @Inject(READ_PROCESS)
     public readonly readProcess,
+    @Inject(READ_PAGINATION_PROCESS)
     public readonly readPaginationProcess,
+    @Inject(READ_ENTIRE_PROCESS)
     public readonly readEntireProcess,
+    @Inject(UPDATE_PARTIAL_PROCESS)
     public readonly updatePartialProcess,
+    @Inject(UPDATE_BATCH_PROCESS)
     public readonly updateBatchProcess,
+    @Inject(UPDATE_ENTIRE_PROCESS)
     public readonly updateEntireProcess,
+    @Inject(UPDATE_ENTIRE_BATCH_PROCESS)
     public readonly updateEntireBatchProcess,
+    @Inject(DELETE_PROCESS)
     public readonly deleteProcess,
+    @Inject(DELETE_BATCH_PROCESS)
     public readonly deleteBatchProcess,
   ) {}
 

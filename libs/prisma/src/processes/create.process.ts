@@ -1,9 +1,17 @@
 import { CreateProcess } from '@autocrud/skeleton/processes/create.process';
+import { PrismaProcess } from './prisma.process';
 
-export class PrismaCreateProcess extends CreateProcess {
+export class PrismaCreateProcess
+  extends PrismaProcess
+  implements CreateProcess
+{
+  private data;
+
+  setData(data) {
+    this.data = data;
+  }
+
   async process(): Promise<any> {
-    this.prisma['asd'].create({
-      data,
-    });
+    await this.getDelegate().create(this.data);
   }
 }
