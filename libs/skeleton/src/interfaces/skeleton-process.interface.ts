@@ -1,10 +1,10 @@
-export interface SkeletonProcess {
-  initialization(): void;
-  before(): void;
-  begin(): void;
-  process(): void;
-  end(): void;
-  after(): void;
+import { Observable } from 'rxjs';
 
-  result();
+export interface SkeletonProcess {
+  initialization(): Observable<void>;
+  before(): Observable<void>;
+  begin(): Observable<void>;
+  process(): Observable<void>;
+  end(): Observable<void>;
+  after(): Observable<void>;
 }

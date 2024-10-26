@@ -1,34 +1,55 @@
 import { Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
+import { IPaginationEntity } from './entities/pagination.entity';
 
-export class SkeletonCRUDController implements ISkeletonCRUDController {
+export class SkeletonCRUDController<T> implements ISkeletonCRUDController<T> {
   @Post()
-  create() {}
+  async create(): Promise<T> {
+    throw new Error('Method not implemented.');
+  }
 
   @Get(':id')
-  readSelected(@Param('id') id) {}
+  async readSelected(@Param('id') id): Promise<T> {
+    throw new Error('Method not implemented.');
+  }
 
   @Get()
-  readPagination() {}
+  async readPagination(): Promise<IPaginationEntity<T>> {
+    throw new Error('Method not implemented.');
+  }
 
   @Get('list')
-  readEntire() {}
+  async readEntire(): Promise<T[]> {
+    throw new Error('Method not implemented.');
+  }
 
   @Patch()
-  updatePartial() {}
+  async updatePartial(): Promise<T> {
+    throw new Error('Method not implemented.');
+  }
 
   @Patch('batch')
-  updatePartialBatch() {}
+  async updatePartialBatch(): Promise<T[]> {
+    throw new Error('Method not implemented.');
+  }
 
   @Put()
-  updateEntire() {}
+  async updateEntire(): Promise<T> {
+    throw new Error('Method not implemented.');
+  }
 
   @Put('batch')
-  updateEntirePatch() {}
+  async updateEntireBatch(): Promise<T[]> {
+    throw new Error('Method not implemented.');
+  }
 
   @Delete()
-  deleteSelected() {}
+  async deleteSelected(): Promise<T> {
+    throw new Error('Method not implemented.');
+  }
 
   @Delete('batch')
-  deleteBatch() {}
+  async deleteBatch(): Promise<T[]> {
+    throw new Error('Method not implemented.');
+  }
 }
