@@ -1,10 +1,9 @@
 {
   "name": "@aditama-labs/nest-autocrud",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "description": "NestJS Auto CRUD Library",
+  "author": "Supan Adit Pratama",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "build:lib:skeleton": "tsc -p libs/skeleton/tsconfig.lib.json",
