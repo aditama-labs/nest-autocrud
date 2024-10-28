@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -10,11 +10,12 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": false,
-    "outDir": "../../dist/libs/prisma",
+    "outDir": "./dist/libs",
     "skipLibCheck": true,
   },
   "include": [
-    "src/**/*"
+    "libs/prisma/src/**/*",
+    "libs/skeleton/src/**/*"
   ],
   "exclude": [
     "node_modules",

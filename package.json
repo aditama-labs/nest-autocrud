@@ -8,6 +8,8 @@
   "scripts": {
     "build": "nest build",
     "build:lib:skeleton": "tsc -p libs/skeleton/tsconfig.lib.json",
+    "build:lib:prisma": "tsc -p libs/prisma/tsconfig.lib.json",
+    "build:libs": "tsc -p tsconfig.lib.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
