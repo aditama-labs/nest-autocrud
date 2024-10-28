@@ -26,6 +26,33 @@ Nest Auto CRUD is a library that provides a set of modules, decorator, service, 
 $ npm install @aditama-labs/nest-autocrud
 ```
 
+## Example
+
+### Prisma ORM
+
+```typescript
+// Your Module
+@Module({
+  imports: [
+    // This is the magic
+    PrismaModule.forRoot({
+      delegate: (prisma) => prisma.user,
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+// Your Controller
+@Controller('examples')
+export class AppController extends SkeletonCRUDController {}
+```
+
+### TypeORM
+
+_COMING SOON_
+
 ## Support
 
 Nest AutoCRUD is an MIT-licensed open source project.
