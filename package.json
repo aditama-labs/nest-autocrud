@@ -7,14 +7,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "exports": {
-    ".": {
-      "import": "./plugins/index.js",
-      "require": "./plugins/index.js",
-      "types": "./plugins/index.d.ts"
-    },
-    "./package.json": "./package.json"
-  },
   "scripts": {
     "build": "nest build",
     "build:lib:skeleton": "tsc -p libs/skeleton/tsconfig.lib.json",
