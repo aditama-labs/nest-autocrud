@@ -5,6 +5,8 @@ test
 e2e
 /src
 /prisma
+/mod.ts
+/jsr.json
 
 .env
 .env.example
