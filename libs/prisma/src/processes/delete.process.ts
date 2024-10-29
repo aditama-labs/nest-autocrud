@@ -1,3 +1,3 @@
-import { DeleteProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/delete.process';
+import { DeleteProcess } from '@aditama-labs/nest-autocrud/skeleton';
 
 export class PrismaDeleteProcess extends DeleteProcess {}

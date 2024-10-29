@@ -1,3 +1,3 @@
-import { PartialBatchUpdateProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/partial/batch/update.process';
+import { PartialBatchUpdateProcess } from '@aditama-labs/nest-autocrud/skeleton';
 
 export class PrismaPartialBatchUpdateProcess extends PartialBatchUpdateProcess {}

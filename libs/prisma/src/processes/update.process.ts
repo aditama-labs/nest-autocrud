@@ -1,3 +1,3 @@
-import { UpdateProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/update.process';
+import { UpdateProcess } from '@aditama-labs/nest-autocrud/skeleton';
 
 export class PrismaUpdateProcess extends UpdateProcess {}

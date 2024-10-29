@@ -1,3 +1,3 @@
-import { BatchUpdateProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/batch/update.process';
+import { BatchUpdateProcess } from '@aditama-labs/nest-autocrud/skeleton';
 
 export class PrismaBatchUpdateProcess extends BatchUpdateProcess {}

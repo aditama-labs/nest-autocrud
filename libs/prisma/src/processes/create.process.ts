@@ -1,4 +1,4 @@
-import { CreateProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/create.process';
+import { CreateProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
 
 export class PrismaCreateProcess

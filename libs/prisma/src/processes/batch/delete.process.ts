@@ -1,3 +1,3 @@
-import { BatchDeleteProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/batch/delete.process';
+import { BatchDeleteProcess } from '@aditama-labs/nest-autocrud/skeleton';
 
 export class PrismaBatchDeleteProcess extends BatchDeleteProcess {}
