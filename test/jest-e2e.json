@@ -11,9 +11,9 @@
     "^.+\\.(t|j)s$": "ts-jest"
   },
   "moduleNameMapper": {
-    "@aditama-labs/nest-autocrud/skeleton/(.*)": "<rootDir>/../libs/skeleton/src/$1",
-    "@aditama-labs/nest-autocrud/skeleton": "<rootDir>/../libs/skeleton/src",
-    "@aditama-labs/nest-autocrud/prisma/(.*)": "<rootDir>/../libs/prisma/src/$1",
-    "@aditama-labs/nest-autocrud/prisma": "<rootDir>/../libs/prisma/src"
+    "@aditama-labs/nest-autocrud/skeleton/(.*)": "<rootDir>/../libs/skeleton/$1",
+    "@aditama-labs/nest-autocrud/skeleton": "<rootDir>/../libs/skeleton",
+    "@aditama-labs/nest-autocrud/prisma/(.*)": "<rootDir>/../libs/prisma/$1",
+    "@aditama-labs/nest-autocrud/prisma": "<rootDir>/../libs/prisma"
   }
 }

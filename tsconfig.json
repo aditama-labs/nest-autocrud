@@ -19,16 +19,16 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@aditama-labs/nest-autocrud/skeleton": [
-        "libs/skeleton/src"
+        "libs/skeleton"
       ],
       "@aditama-labs/nest-autocrud/skeleton/*": [
-        "libs/skeleton/src/*"
+        "libs/skeleton/*"
       ],
       "@aditama-labs/nest-autocrud/prisma": [
-        "libs/prisma/src"
+        "libs/prisma"
       ],
       "@aditama-labs/nest-autocrud/prisma/*": [
-        "libs/prisma/src/*"
+        "libs/prisma/*"
       ]
     }
   }

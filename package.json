@@ -80,8 +80,8 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@aditama-labs/nest-autocrud/skeleton(|/.*)$": "<rootDir>/libs/skeleton/src/$1",
-      "^@aditama-labs/nest-autocrud/prisma(|/.*)$": "<rootDir>/libs/prisma/src/$1"
+      "^@aditama-labs/nest-autocrud/skeleton(|/.*)$": "<rootDir>/libs/skeleton/$1",
+      "^@aditama-labs/nest-autocrud/prisma(|/.*)$": "<rootDir>/libs/prisma/$1"
     }
   }
 }
