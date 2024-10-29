@@ -6,6 +6,8 @@ e2e
 /src
 /prisma
 
+.env
+.env.example
 jest.config.json
 index.ts
 plugin.ts
