@@ -1,19 +1,11 @@
 # source
 libs
-prisma
-src
+sample
 test
+e2e
+/src
+/prisma
 
-.env
-.env.example
-.eslintrc.js
-jsr.json
-mod.ts
-index.js
-nest-cli.json
-package-lock.json
-tsconfig.build.json
-tsconfig.lib.json
 jest.config.json
 index.ts
 plugin.ts
@@ -25,7 +17,7 @@ tsconfig.json
 .circleci
 .github
 
-#misc
+# misc
 renovate.json
 npm-debug.log
 .DS_Store

@@ -1,1 +1,1 @@
-export * from './libs/index';
+export * from './dist';

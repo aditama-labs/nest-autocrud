@@ -11,11 +11,10 @@
     "target": "es6",
     "sourceMap": false,
     "outDir": "./dist",
-    "rootDir": ".",
+    "rootDir": "./libs",
     "skipLibCheck": true,
   },
   "include": [
-    "index.ts",
     "libs/**/*",
   ],
   "exclude": [
