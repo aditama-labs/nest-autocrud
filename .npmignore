@@ -3,6 +3,7 @@ libs
 sample
 test
 e2e
+/dist
 /src
 /prisma
 /mod.ts

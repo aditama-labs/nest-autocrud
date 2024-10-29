@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -10,12 +10,13 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": false,
-    "outDir": "./dist",
-    "rootDir": "./libs",
+    "outDir": "../plugins",
     "skipLibCheck": true,
   },
   "include": [
-    "libs/**/*",
+    "index.ts",
+    "prisma/**/*",
+    "skeleton/**/*",
   ],
   "exclude": [
     "node_modules",
