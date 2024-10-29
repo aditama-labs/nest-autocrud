@@ -9,6 +9,7 @@ test
 .eslintrc.js
 jsr.json
 mod.ts
+index.js
 nest-cli.json
 package-lock.json
 tsconfig.build.json
