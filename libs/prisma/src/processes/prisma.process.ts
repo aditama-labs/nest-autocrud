@@ -1,4 +1,4 @@
-import { DefaultProcess } from '@autocrud/skeleton/processes/default.process';
+import { DefaultProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/default.process';
 import { Inject, Injectable } from '@nestjs/common';
 import { PRISMA_DELEGATE } from '../constants';
 

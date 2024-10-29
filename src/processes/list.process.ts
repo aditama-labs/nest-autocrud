@@ -1,4 +1,4 @@
-import { PrismaListProcess } from '@autocrud/prisma/processes/list.process';
+import { PrismaListProcess } from '@aditama-labs/nest-autocrud/prisma/processes/list.process';
 
 export class AppListProcess extends PrismaListProcess {
   async process(): Promise<any> {

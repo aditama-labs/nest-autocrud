@@ -1,4 +1,4 @@
-import { ListProcess } from '@autocrud/skeleton/processes/list.process';
+import { ListProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/list.process';
 import { PrismaProcess } from './prisma.process';
 
 export class PrismaListProcess extends PrismaProcess implements ListProcess {

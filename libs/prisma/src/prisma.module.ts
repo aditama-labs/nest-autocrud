@@ -1,4 +1,4 @@
-import { READ_ENTIRE_PROCESS } from '@autocrud/skeleton';
+import { READ_ENTIRE_PROCESS } from '@aditama-labs/nest-autocrud/skeleton';
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigurableModuleClass } from './config.module-definition';
 import { PRISMA_DELEGATE } from './constants';

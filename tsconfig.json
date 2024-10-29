@@ -18,16 +18,16 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@autocrud/skeleton": [
+      "@aditama-labs/nest-autocrud/skeleton": [
         "libs/skeleton/src"
       ],
-      "@autocrud/skeleton/*": [
+      "@aditama-labs/nest-autocrud/skeleton/*": [
         "libs/skeleton/src/*"
       ],
-      "@autocrud/prisma": [
+      "@aditama-labs/nest-autocrud/prisma": [
         "libs/prisma/src"
       ],
-      "@autocrud/prisma/*": [
+      "@aditama-labs/nest-autocrud/prisma/*": [
         "libs/prisma/src/*"
       ]
     }

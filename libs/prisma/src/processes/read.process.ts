@@ -1,3 +1,3 @@
-import { ReadProcess } from '@autocrud/skeleton/processes/read.process';
+import { ReadProcess } from '@aditama-labs/nest-autocrud/skeleton/processes/read.process';
 
 export class PrismaReadProcess extends ReadProcess {}
