@@ -1,3 +1,5 @@
 import { DefaultProcess } from './default.process';
 
-export class PaginationProcess extends DefaultProcess {}
+export class PaginationProcess extends DefaultProcess {
+  params: { page: number; limit: number };
+}

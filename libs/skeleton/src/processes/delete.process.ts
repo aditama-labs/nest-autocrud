@@ -1,3 +1,6 @@
 import { DefaultProcess } from './default.process';
 
-export class DeleteProcess extends DefaultProcess {}
+// @TODO: DeleteProcess and ReadProcess are the same, should be refactored next
+export class DeleteProcess extends DefaultProcess {
+  public id;
+}

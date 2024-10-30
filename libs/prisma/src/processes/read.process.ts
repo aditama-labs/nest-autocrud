@@ -1,17 +1,17 @@
-import { CreateProcess } from '@aditama-labs/nest-autocrud/skeleton';
+import { ReadProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
 
-export class PrismaReadProcess extends PrismaProcess implements CreateProcess {
-  private data: any;
-  private id: any;
+export class PrismaReadProcess extends PrismaProcess implements ReadProcess {
+  public id;
+  private result;
 
   async process(): Promise<any> {
-    this.data = await this.getDelegate().findUnique({
+    this.result = await this.getDelegate().findUnique({
       where: { id: this.id },
     });
   }
 
   output() {
-    return this.data;
+    return this.result;
   }
 }

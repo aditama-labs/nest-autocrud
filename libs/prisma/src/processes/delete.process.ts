@@ -1,20 +1,20 @@
-import { CreateProcess } from '@aditama-labs/nest-autocrud/skeleton';
+import { DeleteProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
 
 export class PrismaDeleteProcess
   extends PrismaProcess
-  implements CreateProcess
+  implements DeleteProcess
 {
-  private dataResult: any;
-  private id: any;
+  public id: any;
+  private result: any;
 
   async process(): Promise<any> {
-    this.dataResult = await this.getDelegate().delete({
+    this.result = await this.getDelegate().delete({
       where: { id: this.id },
     });
   }
 
   output() {
-    return this.dataResult;
+    return this.result;
   }
 }

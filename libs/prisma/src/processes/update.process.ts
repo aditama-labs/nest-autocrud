@@ -1,22 +1,22 @@
-import { CreateProcess } from '@aditama-labs/nest-autocrud/skeleton';
+import { UpdateProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
 
 export class PrismaUpdateProcess
   extends PrismaProcess
-  implements CreateProcess
+  implements UpdateProcess
 {
-  private dataResult: any;
-  private dataUpdate: any;
-  private id: any;
+  public id: any;
+  public data: any;
+  private result: any;
 
   async process(): Promise<any> {
-    this.dataResult = await this.getDelegate().update({
-      data: this.dataUpdate,
+    this.result = await this.getDelegate().update({
+      data: this.data,
       where: { id: this.id },
     });
   }
 
   output() {
-    return this.dataResult;
+    return this.result;
   }
 }

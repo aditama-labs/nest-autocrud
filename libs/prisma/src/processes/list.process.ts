@@ -2,13 +2,13 @@ import { ListProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
 
 export class PrismaListProcess extends PrismaProcess implements ListProcess {
-  private data: any;
+  private result;
 
   async process(): Promise<any> {
-    this.data = await this.getDelegate().findMany();
+    this.result = await this.getDelegate().findMany();
   }
 
   output() {
-    return this.data;
+    return this.result;
   }
 }

@@ -1,3 +1,5 @@
 import { DefaultProcess } from './default.process';
 
-export class CreateProcess extends DefaultProcess {}
+export class CreateProcess extends DefaultProcess {
+  public data;
+}

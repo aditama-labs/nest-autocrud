@@ -16,8 +16,14 @@ import {
   READ_PROCESS,
   UPDATE_PROCESS,
 } from './constants';
+import { CreateExcutor } from './executors/create.executor';
 import { DefaultExecutor } from './executors/default.executor';
+import { DeleteExecutor } from './executors/delete.executor';
+import { ListExecutor } from './executors/list.executor';
+import { ReadExecutor } from './executors/read.executor';
+import { UpdateExecutor } from './executors/update.executor';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
+import { PaginationExecutor } from './executors';
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
@@ -37,33 +43,33 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
 
   @Post()
   async create(@Body() body): Promise<any> {
-    return await DefaultExecutor.bootstrap(this.createProcess);
+    return await CreateExcutor.bootstrap(this.createProcess, body);
   }
 
   @Delete(':id')
   async delete(@Param('id') id) {
-    return await DefaultExecutor.bootstrap(this.deleteProcess);
+    return await DeleteExecutor.bootstrap(this.deleteProcess, id);
   }
 
   @Get('list')
   async list() {
-    return await DefaultExecutor.bootstrap(this.listProcess);
+    return await ListExecutor.bootstrap(this.listProcess);
   }
 
   @Get()
   async pagination(
-    @Query() params: { page?: number; limit?: number } = { page: 1, limit: 10 },
+    @Query() params: { page: number; limit: number } = { page: 1, limit: 10 },
   ) {
-    return await DefaultExecutor.bootstrap(this.paginationProcess);
+    return await PaginationExecutor.bootstrap(this.paginationProcess, params);
   }
 
   @Get(':id')
   async read(@Param('id') id) {
-    return await DefaultExecutor.bootstrap(this.readProcess);
+    return await ReadExecutor.bootstrap(this.readProcess, id);
   }
 
-  @Patch()
+  @Patch(':id')
   async update(@Param('id') id, @Body() body) {
-    return await DefaultExecutor.bootstrap(this.updateProcess);
+    return await UpdateExecutor.bootstrap(this.updateProcess, id, body);
   }
 }
