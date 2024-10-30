@@ -9,7 +9,6 @@ export class PrismaListProcess extends PrismaProcess implements ListProcess {
   }
 
   result() {
-    console.log('ASDASDASDASD');
     return this.data;
   }
 }

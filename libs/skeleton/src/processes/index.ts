@@ -5,5 +5,3 @@ export * from './list.process';
 export * from './pagination.process';
 export * from './read.process';
 export * from './update.process';
-export * from './batch';
-export * from './partial';

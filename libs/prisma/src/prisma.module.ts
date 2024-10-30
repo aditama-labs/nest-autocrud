@@ -1,4 +1,4 @@
-import { READ_ENTIRE_PROCESS } from '@aditama-labs/nest-autocrud/skeleton';
+import { LIST_PROCESS } from '@aditama-labs/nest-autocrud/skeleton';
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigurableModuleClass } from './config.module-definition';
 import { PRISMA_DELEGATE } from './constants';
@@ -7,7 +7,7 @@ import { PrismaService } from './prisma.service';
 import { PrismaListProcess } from './processes/list.process';
 
 @Module({
-  exports: [PrismaService, PRISMA_DELEGATE, READ_ENTIRE_PROCESS],
+  exports: [PrismaService, PRISMA_DELEGATE, LIST_PROCESS],
 })
 export class PrismaModule extends ConfigurableModuleClass {
   static forRoot(options: PrismaModuleOptions): DynamicModule {
@@ -25,7 +25,7 @@ export class PrismaModule extends ConfigurableModuleClass {
       providers = [
         ...providers,
         {
-          provide: READ_ENTIRE_PROCESS,
+          provide: LIST_PROCESS,
           useClass: options.processList,
         },
       ];
@@ -33,7 +33,7 @@ export class PrismaModule extends ConfigurableModuleClass {
       providers = [
         ...providers,
         {
-          provide: READ_ENTIRE_PROCESS,
+          provide: LIST_PROCESS,
           useClass: PrismaListProcess,
         },
       ];

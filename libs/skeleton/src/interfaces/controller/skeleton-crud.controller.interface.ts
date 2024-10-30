@@ -1,3 +1,8 @@
 export interface ISkeletonCRUDController {
-  readEntire();
+  create();
+  delete();
+  list();
+  pagination();
+  read(id);
+  update();
 }

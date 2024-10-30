@@ -5,13 +5,18 @@ export class PrismaCreateProcess
   extends PrismaProcess
   implements CreateProcess
 {
-  private data;
+  private dataInsert;
+  private dataResult;
 
   setData(data) {
-    this.data = data;
+    this.dataInsert = data;
   }
 
   async process(): Promise<any> {
-    await this.getDelegate().create(this.data);
+    this.dataResult = await this.getDelegate().create(this.dataInsert);
+  }
+
+  result() {
+    this.dataResult;
   }
 }
