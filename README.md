@@ -52,9 +52,9 @@ $ npm install @aditama-labs/nest-autocrud
 // Your Module
 @Module({
   imports: [
-    // This is the magic
+    // This module will automatically map your model to the controller
     PrismaModule.forRoot({
-      delegate: (prisma) => prisma.user,
+      delegate: (prisma: PrismaClient) => prisma.user,
     }),
   ],
   controllers: [AppController],
