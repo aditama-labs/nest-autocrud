@@ -1,6 +1,6 @@
 {
   "name": "@aditama-labs/nest-autocrud",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "NestJS Auto CRUD Library",
   "author": "Supan Adit Pratama",
   "license": "MIT",
