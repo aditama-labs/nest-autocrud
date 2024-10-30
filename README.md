@@ -18,7 +18,25 @@ Nest Auto CRUD is a library that provides a set of modules, decorator, service, 
 
 ## Roadmap
 
-- Create custom generic for Prisma ORM Support [#5273](https://github.com/prisma/prisma/issues/5273)
+### Basic Thing
+
+- Basic CRUD Controller with unique selection is ID and general request body
+- Custom Read Query Unique Selection
+- Custom body mapping
+
+### Tailored Controller Abstraction
+
+- Controller options for only read and update
+- Controller options for only create and delete
+- Controller options for only read
+- Controller options for only update
+- Controller options for only create
+- Controller options for only delete
+- Controller options for only read and create
+
+### Advanced Support
+
+- Generic support for Prisma ORM [#5273](https://github.com/prisma/prisma/issues/5273)
 
 ## Installation
 
