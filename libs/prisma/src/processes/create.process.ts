@@ -16,7 +16,7 @@ export class PrismaCreateProcess
     this.dataResult = await this.getDelegate().create(this.dataInsert);
   }
 
-  result() {
+  output() {
     this.dataResult;
   }
 }

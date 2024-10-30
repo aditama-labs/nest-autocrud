@@ -16,7 +16,7 @@ export class PrismaUpdateProcess
     });
   }
 
-  result() {
+  output() {
     return this.dataResult;
   }
 }

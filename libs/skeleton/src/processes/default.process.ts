@@ -8,7 +8,7 @@ export class DefaultProcess implements ISkeletonProcess {
   async end(): Promise<any> {}
   async after(): Promise<any> {}
 
-  result(): any {
-    return 'Hello World';
+  output(): any {
+    return 'Not Implemented Yet!';
   }
 }

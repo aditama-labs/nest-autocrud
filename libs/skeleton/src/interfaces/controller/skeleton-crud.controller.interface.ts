@@ -1,8 +1,8 @@
 export interface ISkeletonCRUDController {
-  create();
-  delete();
+  create(body);
+  delete(id);
   list();
-  pagination();
+  pagination(params: { page?: number; limit?: number });
   read(id);
-  update();
+  update(id, body);
 }

@@ -6,5 +6,5 @@ export interface ISkeletonProcess {
   end();
   after();
 
-  result();
+  output();
 }

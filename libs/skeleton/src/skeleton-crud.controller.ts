@@ -1,4 +1,13 @@
-import { Delete, Get, Inject, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Delete,
+  Get,
+  Inject,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import {
   CREATE_PROCESS,
   DELETE_PROCESS,
@@ -27,12 +36,12 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   ) {}
 
   @Post()
-  async create(): Promise<any> {
+  async create(@Body() body): Promise<any> {
     return await DefaultExecutor.bootstrap(this.createProcess);
   }
 
   @Delete(':id')
-  async delete() {
+  async delete(@Param('id') id) {
     return await DefaultExecutor.bootstrap(this.deleteProcess);
   }
 
@@ -42,7 +51,9 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   }
 
   @Get()
-  async pagination() {
+  async pagination(
+    @Query() params: { page?: number; limit?: number } = { page: 1, limit: 10 },
+  ) {
     return await DefaultExecutor.bootstrap(this.paginationProcess);
   }
 
@@ -52,7 +63,7 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   }
 
   @Patch()
-  async update() {
+  async update(@Param('id') id, @Body() body) {
     return await DefaultExecutor.bootstrap(this.updateProcess);
   }
 }

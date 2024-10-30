@@ -12,13 +12,13 @@ export class DefaultExecutor {
     await this.process.after();
   }
 
-  getResult(): any {
-    return this.process.result();
+  getOutput(): any {
+    return this.process.output();
   }
 
   static async bootstrap(process: ISkeletonProcess): Promise<any> {
     const executor = new DefaultExecutor(process);
     await executor.execute();
-    return executor.getResult();
+    return executor.getOutput();
   }
 }

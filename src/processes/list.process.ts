@@ -6,7 +6,7 @@ export class AppListProcess extends PrismaListProcess {
     super.process();
   }
 
-  result() {
+  output() {
     return [];
   }
 }

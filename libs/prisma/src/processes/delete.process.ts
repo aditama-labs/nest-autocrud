@@ -14,7 +14,7 @@ export class PrismaDeleteProcess
     });
   }
 
-  result() {
+  output() {
     return this.dataResult;
   }
 }

@@ -11,7 +11,7 @@ export class PrismaReadProcess extends PrismaProcess implements CreateProcess {
     });
   }
 
-  result() {
+  output() {
     return this.data;
   }
 }

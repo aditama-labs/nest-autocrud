@@ -8,7 +8,7 @@ export class PrismaListProcess extends PrismaProcess implements ListProcess {
     this.data = await this.getDelegate().findMany();
   }
 
-  result() {
+  output() {
     return this.data;
   }
 }
