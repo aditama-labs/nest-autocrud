@@ -66,6 +66,19 @@ export class AppModule {}
 // Your Controller
 @Controller('examples')
 export class AppController extends SkeletonCRUDController {}
+
+// Expected Output
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [NestFactory] Starting Nest application...
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [InstanceLoader] PrismaModule dependencies initialized +14ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [InstanceLoader] AppModule dependencies initialized +0ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RoutesResolver] AppController {/example}: +4ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example, POST} route +2ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example/:id, DELETE} route +0ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example/list, GET} route +1ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example, GET} route +0ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example/:id, GET} route +0ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [RouterExplorer] Mapped {/example, PATCH} route +1ms
+[Nest] 101445  - 10/30/2024, 9:12:20 PM     LOG [NestApplication] Nest application successfully started +198ms
 ```
 
 ### TypeORM
