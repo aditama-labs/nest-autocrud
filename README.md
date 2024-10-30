@@ -23,6 +23,7 @@ Nest Auto CRUD is a library that provides a set of modules, decorator, service, 
 - Basic CRUD Controller with unique selection is ID and general request body
 - Custom Read Query Unique Selection
 - Custom body mapping
+- Custom validation
 
 ### Tailored Controller Abstraction
 
