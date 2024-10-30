@@ -1,9 +1,15 @@
 {
   "name": "@aditama-labs/nest-autocrud",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "NestJS Auto CRUD Library",
   "author": "Supan Adit Pratama",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aditama-labs/nest-autocrud"
+  },
+  "homepage": "https://github.com/aditama-labs/nest-autocrud#readme",
+  "bugs": "https://github.com/aditama-labs/nest-autocrud/issues",
   "publishConfig": {
     "access": "public"
   },
