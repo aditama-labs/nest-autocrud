@@ -1,16 +1,10 @@
-import { PrismaModule } from '@aditama-labs/nest-autocrud/prisma';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PrismaClient } from '@prisma/client';
+import { SimpleModule } from './example/simple/simple.module';
+import { CustomModule } from './example/custom/custom.module';
 
 @Module({
-  imports: [
-    PrismaModule.forRoot({
-      delegate: (prisma: PrismaClient) => prisma.user,
-    }),
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [SimpleModule, CustomModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
