@@ -65,9 +65,11 @@ export class AppModule {}
 
 // Your Controller
 @Controller('examples')
-export class AppController extends SkeletonCRUDController {}
+export class AppController extends SkeletonCRUDController {
+  // Yes, no need to write anything here
+}
 
-// Expected Output
+// Expected Output ( As you can see the API is automatically mapped and generated )
 [Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestFactory] Starting Nest application...
 [Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] PrismaModule dependencies initialized +14ms
 [Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] AppModule dependencies initialized +0ms
