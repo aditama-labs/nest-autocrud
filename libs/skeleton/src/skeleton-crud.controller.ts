@@ -84,6 +84,7 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
 // - Using environment variable is possible to set in the decorator and been tested but... it could lead to human error and more issue than using this which already automated and configured
 // Known issue:
 // - OpenAPI ( Swagger ) cannot read any decorator inside this
+// - Define the return using `any` will remove ability for LSP to read the result type and lead to broken autocomplete function for most of editor
 export const CustomCRUDController = (options?: ControllerOption) => {
   const uniqueIdentifier = `${options?.uniqueIdentifier ?? 'id'}`;
 
