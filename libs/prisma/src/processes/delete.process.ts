@@ -6,15 +6,10 @@ export class PrismaDeleteProcess
   implements DeleteProcess
 {
   public id: any;
-  private result: any;
 
   async process(): Promise<any> {
     this.result = await this.getDelegate().delete({
       where: { id: this.id },
     });
-  }
-
-  output() {
-    return this.result;
   }
 }

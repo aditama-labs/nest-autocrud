@@ -6,7 +6,6 @@ export class PrismaPaginationProcess
   implements PaginationProcess
 {
   public params: { page: number; limit: number };
-  private result;
 
   async process(): Promise<any> {
     const { page, limit } = this.params;
@@ -17,9 +16,5 @@ export class PrismaPaginationProcess
       // @TODO: I don't know why this actually string even the type is number, without parseInt it will throw error
       take: parseInt(limit.toString(), 10),
     });
-  }
-
-  output() {
-    return this.result;
   }
 }

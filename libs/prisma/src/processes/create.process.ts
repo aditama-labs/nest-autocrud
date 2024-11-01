@@ -6,15 +6,10 @@ export class PrismaCreateProcess
   implements CreateProcess
 {
   public data;
-  public result;
 
   async process(): Promise<any> {
     this.result = await this.getDelegate().create({
       data: this.data,
     });
-  }
-
-  output() {
-    this.result;
   }
 }

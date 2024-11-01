@@ -1,6 +1,8 @@
 import { ISkeletonProcess } from '../interfaces/skeleton-process.interface';
 
 export class DefaultProcess implements ISkeletonProcess {
+  protected result;
+
   async initialization(): Promise<any> {}
   async before(): Promise<any> {}
   async begin(): Promise<any> {}
@@ -8,7 +10,7 @@ export class DefaultProcess implements ISkeletonProcess {
   async end(): Promise<any> {}
   async after(): Promise<any> {}
 
-  output(): any {
-    return 'Not Implemented Yet!';
+  output() {
+    return this.result;
   }
 }

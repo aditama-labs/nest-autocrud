@@ -7,16 +7,11 @@ export class PrismaUpdateProcess
 {
   public id: any;
   public data: any;
-  private result: any;
 
   async process(): Promise<any> {
     this.result = await this.getDelegate().update({
       data: this.data,
       where: { id: this.id },
     });
-  }
-
-  output() {
-    return this.result;
   }
 }
