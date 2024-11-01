@@ -81,6 +81,7 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
 // - I know this is not recommended but.... is there any way to pass custom unique identifier ?
 // - Everyone still can use SkeletonCRUDController with no issue if don't want or don't like this approach, but... unique identifier must ID for sure and the type should either UUID, String or Number
 // - Correct me if I wrong. I already read the main repository of NestJS and they use Reflect for passing some metadata ( I know how to do it ) but... it still not possible for dynamic unique identifier
+// - Using environment variable is possible to set in the decorator and been tested but... it could lead to human error and more issue than using this which already automated and configured
 // Known issue:
 // - OpenAPI ( Swagger ) cannot read any decorator inside this
 export const CustomCRUDController = (options?: ControllerOption): any => {
