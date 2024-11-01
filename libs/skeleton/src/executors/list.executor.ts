@@ -6,7 +6,7 @@ export class ListExecutor extends DefaultExecutor {
     super(process);
   }
 
-  static async bootstrap(process: ListProcess): Promise<any> {
+  static async bootstrap(process: ListProcess) {
     const executor = new ListExecutor(process);
     await executor.execute();
     return executor.getOutput();

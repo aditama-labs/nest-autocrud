@@ -9,7 +9,7 @@ import {
 import { PrismaListProcess } from '../processes/list.process';
 
 export interface PrismaModuleOptions {
-  delegate: (prisma: PrismaService) => any;
+  delegate: (prisma: PrismaService) => unknown;
   processCreate?: typeof PrismaCreateProcess;
   processDelete?: typeof PrismaDeleteProcess;
   processList?: typeof PrismaListProcess;

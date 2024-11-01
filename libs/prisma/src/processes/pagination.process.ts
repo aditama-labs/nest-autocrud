@@ -8,7 +8,7 @@ export class PrismaPaginationProcess
 {
   params: IPaginationParam;
 
-  async process(): Promise<any> {
+  async process() {
     const { page, limit } = this.params;
     const skip = (page - 1) * limit;
 

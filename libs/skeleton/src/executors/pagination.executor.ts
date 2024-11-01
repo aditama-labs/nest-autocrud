@@ -12,7 +12,7 @@ export class PaginationExecutor extends DefaultExecutor {
   static async bootstrap(
     process: PaginationProcess,
     params: PaginationParamDTO,
-  ): Promise<any> {
+  ) {
     const executor = new PaginationExecutor(process, params);
     await executor.execute();
     return executor.getOutput();

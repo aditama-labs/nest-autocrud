@@ -9,7 +9,7 @@ export class DeleteExecutor extends DefaultExecutor {
     process.identity = id;
   }
 
-  static async bootstrap(process: DeleteProcess, id): Promise<any> {
+  static async bootstrap(process: DeleteProcess, id) {
     const executor = new DeleteExecutor(process, id);
     await executor.execute();
     return executor.getOutput();

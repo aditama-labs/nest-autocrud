@@ -12,7 +12,7 @@ export class DefaultExecutor {
     await this.process.after();
   }
 
-  getOutput(): any {
+  getOutput() {
     return this.process.output();
   }
 }

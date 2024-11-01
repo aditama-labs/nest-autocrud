@@ -7,7 +7,7 @@ export class PrismaCreateProcess
 {
   public payload;
 
-  async process(): Promise<any> {
+  async process() {
     this.result = await this.getDelegate().create({
       data: this.payload,
     });

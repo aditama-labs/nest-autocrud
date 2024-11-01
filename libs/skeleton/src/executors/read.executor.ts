@@ -8,7 +8,7 @@ export class ReadExecutor extends DefaultExecutor {
     process.identity = id;
   }
 
-  static async bootstrap(process: ReadProcess, id): Promise<any> {
+  static async bootstrap(process: ReadProcess, id) {
     const executor = new ReadExecutor(process, id);
     await executor.execute();
     return executor.getOutput();

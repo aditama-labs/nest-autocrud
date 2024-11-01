@@ -45,7 +45,7 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   ) {}
 
   @Post()
-  async create(@Body() body): Promise<any> {
+  async create(@Body() body) {
     return await CreateExcutor.bootstrap(this.createProcess, body);
   }
 
@@ -77,7 +77,7 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
 }
 
 // NOTES:
-// - This method only works when return as `any`
+// - This method only works when return as `any` or not define the type at all
 // - I know this is not recommended but.... is there any way to pass custom unique identifier ?
 // - Everyone still can use SkeletonCRUDController with no issue if don't want or don't like this approach, but... unique identifier must ID for sure and the type should either UUID, String or Number
 // - Correct me if I wrong. I already read the main repository of NestJS and they use Reflect for passing some metadata ( I know how to do it ) but... it still not possible for dynamic unique identifier
@@ -89,7 +89,7 @@ export const CustomCRUDController = (options?: ControllerOption) => {
 
   class WrapperCRUDController extends SkeletonCRUDController {
     @Post()
-    async create(@Body() body): Promise<any> {
+    async create(@Body() body) {
       return await super.create(body);
     }
 

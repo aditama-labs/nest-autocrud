@@ -5,9 +5,9 @@ export class PrismaDeleteProcess
   extends PrismaProcess
   implements DeleteProcess
 {
-  public identity: any;
+  public identity;
 
-  async process(): Promise<any> {
+  async process() {
     this.result = await this.getDelegate().delete({
       where: { id: this.identity },
     });

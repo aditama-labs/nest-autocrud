@@ -8,7 +8,7 @@ export class CreateExcutor extends DefaultExecutor {
     process.payload = data;
   }
 
-  static async bootstrap(process: CreateProcess, data): Promise<any> {
+  static async bootstrap(process: CreateProcess, data) {
     const executor = new CreateExcutor(process, data);
     await executor.execute();
     return executor.getOutput();

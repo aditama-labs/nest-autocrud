@@ -4,7 +4,7 @@ import { PrismaProcess } from './prisma.process';
 export class PrismaReadProcess extends PrismaProcess implements ReadProcess {
   public identity;
 
-  async process(): Promise<any> {
+  async process() {
     this.result = await this.getDelegate().findUnique({
       where: { id: this.identity },
     });

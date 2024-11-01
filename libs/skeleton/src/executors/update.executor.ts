@@ -10,7 +10,7 @@ export class UpdateExecutor extends DefaultExecutor {
     process.payload = data;
   }
 
-  static async bootstrap(process: UpdateProcess, id, data): Promise<any> {
+  static async bootstrap(process: UpdateProcess, id, data) {
     const executor = new UpdateExecutor(process, id, data);
     await executor.execute();
     return executor.getOutput();

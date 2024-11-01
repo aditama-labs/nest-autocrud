@@ -34,7 +34,7 @@ import { PrismaListProcess } from './processes/list.process';
   ],
 })
 export class PrismaModule extends ConfigurableModuleClass {
-  private static autoPresetProvider(providers, option, key, preset): any {
+  private static autoPresetProvider(providers, option, key, preset) {
     if (option) {
       providers = [
         ...providers,
