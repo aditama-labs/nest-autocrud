@@ -1,5 +1,4 @@
 export * from './constants';
-export * from './decoratos';
 export * from './dto';
 export * from './entities';
 export * from './executors';
