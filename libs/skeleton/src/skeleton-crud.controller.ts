@@ -28,7 +28,7 @@ import { UpdateExecutor } from './executors/update.executor';
 import { ControllerOption } from './interfaces/controller/controller.option';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
 
-class SkeletonCRUDController implements ISkeletonCRUDController {
+export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
     @Inject(CREATE_PROCESS)
     public readonly createProcess,
@@ -83,10 +83,10 @@ class SkeletonCRUDController implements ISkeletonCRUDController {
 // - Correct me if I wrong. I already read the main repository of NestJS and they use Reflect for passing some metadata ( I know how to do it ) but... it still not possible for dynamic unique identifier
 // Known issue:
 // - OpenAPI ( Swagger ) cannot read any decorator inside this
-export const AutoCRUDController = (options?: ControllerOption): any => {
+export const CustomCRUDController = (options?: ControllerOption): any => {
   const uniqueIdentifier = `${options?.uniqueIdentifier ?? 'id'}`;
 
-  class CRUDController extends SkeletonCRUDController {
+  class WrapperCRUDController extends SkeletonCRUDController {
     @Post()
     async create(@Body() body): Promise<any> {
       return await super.create(body);
@@ -119,5 +119,5 @@ export const AutoCRUDController = (options?: ControllerOption): any => {
     }
   }
 
-  return CRUDController;
+  return WrapperCRUDController;
 };

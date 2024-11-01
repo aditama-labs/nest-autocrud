@@ -1,7 +1,5 @@
 import { Controller } from '@nestjs/common';
-import { AutoCRUDController } from 'libs';
+import { SkeletonCRUDController } from 'libs';
 
 @Controller('example/simple')
-export class SimpleController extends AutoCRUDController({
-  uniqueIdentifier: 'username',
-}) {}
+export class SimpleController extends SkeletonCRUDController {}
