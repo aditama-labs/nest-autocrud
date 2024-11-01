@@ -1,6 +1,14 @@
-import { Controller } from '@nestjs/common';
-import { SkeletonController, SkeletonCRUDController } from 'libs';
+import { UniqueOverride } from '@aditama-labs/nest-autocrud/skeleton/src/decoratos/unique-override.decorator';
+import { Controller, Get } from '@nestjs/common';
+import { getBaseController, SkeletonController, UNIQUE_IDENTIFIER } from 'libs';
 
-@Controller('example/simple')
 @SkeletonController()
-export class SimpleController extends SkeletonCRUDController {}
+@Controller('example/simple')
+export class SimpleController extends getBaseController() {
+  @UniqueOverride()
+  @Get('list')
+  async list(): Promise<any> {
+    console.log(Reflect.getOwnMetadata(UNIQUE_IDENTIFIER, this.constructor));
+    return super.list();
+  }
+}

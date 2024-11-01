@@ -1,5 +1,7 @@
+import { UNIQUE_IDENTIFIER } from '../constants';
+
 export function SkeletonController(): ClassDecorator {
   return (target: object) => {
-    console.log('STARTED', target);
+    Reflect.defineMetadata(UNIQUE_IDENTIFIER, 'haha', target);
   };
 }

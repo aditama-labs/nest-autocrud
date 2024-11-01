@@ -1,5 +1,7 @@
+import { getBaseController } from '@aditama-labs/nest-autocrud/skeleton';
 import { Controller } from '@nestjs/common';
-import { SkeletonCRUDController } from 'libs';
 
 @Controller('example/custom')
-export class CustomController extends SkeletonCRUDController {}
+export class CustomController extends getBaseController({
+  uniqueIdentifier: 'key',
+}) {}
