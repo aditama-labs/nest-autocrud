@@ -1,11 +1,12 @@
 import { PaginationProcess } from '@aditama-labs/nest-autocrud/skeleton';
 import { PrismaProcess } from './prisma.process';
+import { IPaginationParam } from '@aditama-labs/nest-autocrud/skeleton/src/interfaces/pagination-param.interface';
 
 export class PrismaPaginationProcess
   extends PrismaProcess
   implements PaginationProcess
 {
-  public params: { page: number; limit: number };
+  params: IPaginationParam;
 
   async process(): Promise<any> {
     const { page, limit } = this.params;
@@ -13,8 +14,7 @@ export class PrismaPaginationProcess
 
     this.result = await this.getDelegate().findMany({
       skip,
-      // @TODO: I don't know why this actually string even the type is number, without parseInt it will throw error
-      take: parseInt(limit.toString(), 10),
+      take: limit,
     });
   }
 }

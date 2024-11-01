@@ -1,11 +1,9 @@
 import { DefaultExecutor } from '.';
+import { PaginationParamDTO } from '../dto';
 import { PaginationProcess } from '../processes';
 
 export class PaginationExecutor extends DefaultExecutor {
-  constructor(
-    process: PaginationProcess,
-    params: { page: number; limit: number },
-  ) {
+  constructor(process: PaginationProcess, params: PaginationParamDTO) {
     super(process);
     // Set params to process
     process.params = params;
@@ -13,7 +11,7 @@ export class PaginationExecutor extends DefaultExecutor {
 
   static async bootstrap(
     process: PaginationProcess,
-    params: { page: number; limit: number },
+    params: PaginationParamDTO,
   ): Promise<any> {
     const executor = new PaginationExecutor(process, params);
     await executor.execute();

@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Delete,
   Get,
   Inject,
@@ -7,6 +8,9 @@ import {
   Patch,
   Post,
   Query,
+  UseInterceptors,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import {
   CREATE_PROCESS,
@@ -16,14 +20,14 @@ import {
   READ_PROCESS,
   UPDATE_PROCESS,
 } from './constants';
+import { PaginationParamDTO } from './dto';
+import { PaginationExecutor } from './executors';
 import { CreateExcutor } from './executors/create.executor';
-import { DefaultExecutor } from './executors/default.executor';
 import { DeleteExecutor } from './executors/delete.executor';
 import { ListExecutor } from './executors/list.executor';
 import { ReadExecutor } from './executors/read.executor';
 import { UpdateExecutor } from './executors/update.executor';
 import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
-import { PaginationExecutor } from './executors';
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
@@ -57,9 +61,8 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   }
 
   @Get()
-  async pagination(
-    @Query() params: { page: number; limit: number } = { page: 1, limit: 10 },
-  ) {
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async pagination(@Query() params: PaginationParamDTO) {
     return await PaginationExecutor.bootstrap(this.paginationProcess, params);
   }
 
