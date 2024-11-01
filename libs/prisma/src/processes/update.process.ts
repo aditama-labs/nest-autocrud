@@ -5,13 +5,13 @@ export class PrismaUpdateProcess
   extends PrismaProcess
   implements UpdateProcess
 {
-  public id: any;
-  public data: any;
+  public identity: any;
+  public payload: any;
 
   async process(): Promise<any> {
     this.result = await this.getDelegate().update({
-      data: this.data,
-      where: { id: this.id },
+      data: this.payload,
+      where: { id: this.identity },
     });
   }
 }

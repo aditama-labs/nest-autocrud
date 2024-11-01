@@ -5,7 +5,7 @@ export class ReadExecutor extends DefaultExecutor {
   constructor(process: ReadProcess, id) {
     super(process);
     // Set the id of the data
-    process.id = id;
+    process.identity = id;
   }
 
   static async bootstrap(process: ReadProcess, id): Promise<any> {

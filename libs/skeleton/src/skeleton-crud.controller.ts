@@ -50,8 +50,8 @@ class SkeletonCRUDController implements ISkeletonCRUDController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') providedKey) {
-    return await DeleteExecutor.bootstrap(this.deleteProcess, providedKey);
+  async delete(@Param('id') identity) {
+    return await DeleteExecutor.bootstrap(this.deleteProcess, identity);
   }
 
   @Get('list')
@@ -66,17 +66,13 @@ class SkeletonCRUDController implements ISkeletonCRUDController {
   }
 
   @Get(':id')
-  async read(@Param('id') providedKey) {
-    return await ReadExecutor.bootstrap(this.readProcess, providedKey);
+  async read(@Param('id') identity) {
+    return await ReadExecutor.bootstrap(this.readProcess, identity);
   }
 
   @Patch(':id')
-  async update(@Param('id') providedKey, @Body() body) {
-    return await UpdateExecutor.bootstrap(
-      this.updateProcess,
-      providedKey,
-      body,
-    );
+  async update(@Param('id') identity, @Body() body) {
+    return await UpdateExecutor.bootstrap(this.updateProcess, identity, body);
   }
 }
 

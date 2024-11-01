@@ -6,8 +6,8 @@ export class UpdateExecutor extends DefaultExecutor {
   constructor(process: UpdateProcess, id, data) {
     super(process);
     // Set the id and data to process
-    process.id = id;
-    process.data = data;
+    process.identity = id;
+    process.payload = data;
   }
 
   static async bootstrap(process: UpdateProcess, id, data): Promise<any> {

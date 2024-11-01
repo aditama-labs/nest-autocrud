@@ -5,11 +5,11 @@ export class PrismaCreateProcess
   extends PrismaProcess
   implements CreateProcess
 {
-  public data;
+  public payload;
 
   async process(): Promise<any> {
     this.result = await this.getDelegate().create({
-      data: this.data,
+      data: this.payload,
     });
   }
 }

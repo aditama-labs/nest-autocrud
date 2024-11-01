@@ -6,7 +6,7 @@ export class DeleteExecutor extends DefaultExecutor {
   constructor(process: DeleteProcess, id) {
     super(process);
     // Set the id of the data
-    process.id = id;
+    process.identity = id;
   }
 
   static async bootstrap(process: DeleteProcess, id): Promise<any> {

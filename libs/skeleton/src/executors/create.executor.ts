@@ -5,7 +5,7 @@ export class CreateExcutor extends DefaultExecutor {
   constructor(process: CreateProcess, data) {
     super(process);
     // Set data to process
-    process.data = data;
+    process.payload = data;
   }
 
   static async bootstrap(process: CreateProcess, data): Promise<any> {
