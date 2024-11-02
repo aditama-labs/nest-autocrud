@@ -35,7 +35,7 @@ import {
   ISkeletonUpdateController,
 } from './interfaces/controller/skeleton-crud.controller.interface';
 
-export class SkeletonReadController implements ISkeletonReadController {
+export class SkeletonDetailController implements ISkeletonReadController {
   constructor(
     @Inject(READ_PROCESS)
     public readonly readProcess,
@@ -68,6 +68,48 @@ export class SkeletonListController implements ISkeletonListController {
   @Get('list')
   async list() {
     return await ListExecutor.bootstrap(this.listProcess);
+  }
+}
+
+export class SkeletonCRController
+  implements ISkeletonCreateController, ISkeletonReadController
+{
+  constructor(
+    @Inject(READ_PROCESS)
+    public readonly readProcess,
+    @Inject(CREATE_PROCESS)
+    public readonly createProcess,
+  ) {}
+
+  @Get(':id')
+  async read(@Param('id') identity) {
+    return await ReadExecutor.bootstrap(this.readProcess, identity);
+  }
+
+  @Post()
+  async create(@Body() body) {
+    return await CreateExcutor.bootstrap(this.createProcess, body);
+  }
+}
+
+export class SkeletonURController
+  implements ISkeletonUpdateController, ISkeletonReadController
+{
+  constructor(
+    @Inject(READ_PROCESS)
+    public readonly readProcess,
+    @Inject(UPDATE_PROCESS)
+    public readonly updateProcess,
+  ) {}
+
+  @Get(':id')
+  async read(@Param('id') identity) {
+    return await ReadExecutor.bootstrap(this.readProcess, identity);
+  }
+
+  @Patch(':id')
+  async update(@Param('id') identity, @Body() body) {
+    return await UpdateExecutor.bootstrap(this.updateProcess, identity, body);
   }
 }
 
