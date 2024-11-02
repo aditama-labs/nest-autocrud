@@ -9,3 +9,7 @@ cd plugins
 
 # Publish
 npm publish
+
+# Clean after finish
+cd ..
+./scripts/unix/cleaner.sh
