@@ -9,11 +9,11 @@ export interface ISkeletonListController {
 }
 
 export interface ISkeletonReadController {
-  read(id);
+  read(identity);
 }
 
 export interface ISkeletonDeleteController {
-  delete(id);
+  delete(identity);
 }
 
 export interface ISkeletonCreateController {
@@ -21,7 +21,7 @@ export interface ISkeletonCreateController {
 }
 
 export interface ISkeletonUpdateController {
-  update(id, body);
+  update(identity, body);
 }
 
 export interface ISkeletonCRUDController
