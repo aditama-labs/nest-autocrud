@@ -26,7 +26,77 @@ import { ListExecutor } from './executors/list.executor';
 import { ReadExecutor } from './executors/read.executor';
 import { UpdateExecutor } from './executors/update.executor';
 import { ControllerOption } from './interfaces/controller/controller.option';
-import { ISkeletonCRUDController } from './interfaces/controller/skeleton-crud.controller.interface';
+import {
+  ISkeletonCreateController,
+  ISkeletonCRUDController,
+  ISkeletonListController,
+  ISkeletonPaginationController,
+  ISkeletonReadController,
+  ISkeletonUpdateController,
+} from './interfaces/controller/skeleton-crud.controller.interface';
+
+export class SkeletonReadController implements ISkeletonReadController {
+  constructor(
+    @Inject(READ_PROCESS)
+    public readonly readProcess,
+  ) {}
+
+  @Get(':id')
+  async read(@Param('id') identity) {
+    return await ReadExecutor.bootstrap(this.readProcess, identity);
+  }
+}
+
+export class SkeletonCreateController implements ISkeletonCreateController {
+  constructor(
+    @Inject(CREATE_PROCESS)
+    public readonly createProcess,
+  ) {}
+
+  @Post()
+  async create(@Body() body) {
+    return await CreateExcutor.bootstrap(this.createProcess, body);
+  }
+}
+
+export class SkeletonListController implements ISkeletonListController {
+  constructor(
+    @Inject(LIST_PROCESS)
+    public readonly listProcess,
+  ) {}
+
+  @Get('list')
+  async list() {
+    return await ListExecutor.bootstrap(this.listProcess);
+  }
+}
+
+export class SkeletonPaginationController
+  implements ISkeletonPaginationController
+{
+  constructor(
+    @Inject(PAGINATION_PROCESS)
+    public readonly paginationProcess,
+  ) {}
+
+  @Get()
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async pagination(@Query() params: PaginationParamDTO) {
+    return await PaginationExecutor.bootstrap(this.paginationProcess, params);
+  }
+}
+
+export class SkeletonUpdateController implements ISkeletonUpdateController {
+  constructor(
+    @Inject(UPDATE_PROCESS)
+    public readonly updateProcess,
+  ) {}
+
+  @Patch(':id')
+  async update(@Param('id') identity, @Body() body) {
+    return await UpdateExecutor.bootstrap(this.updateProcess, identity, body);
+  }
+}
 
 export class SkeletonCRUDController implements ISkeletonCRUDController {
   constructor(
