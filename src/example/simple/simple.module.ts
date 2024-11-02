@@ -1,6 +1,6 @@
+import { PrismaModule } from '@aditama-labs/nest-autocrud/prisma';
 import { Module } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { PrismaModule } from 'libs';
 import { SimpleController } from './simple.controller';
 
 @Module({

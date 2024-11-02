@@ -1,19 +1,14 @@
 import { PrismaService } from '../prisma.service';
-import {
-  PrismaCreateProcess,
-  PrismaDeleteProcess,
-  PrismaPaginationProcess,
-  PrismaReadProcess,
-  PrismaUpdateProcess,
-} from '../processes';
-import { PrismaListProcess } from '../processes/list.process';
 
+// @TODO: Find way to use typesafe in each of the process property
+// Known Issue:
+// - You cannot be able modified the constructor extended to each process
 export interface PrismaModuleOptions {
-  delegate: (prisma: PrismaService) => unknown;
-  processCreate?: typeof PrismaCreateProcess;
-  processDelete?: typeof PrismaDeleteProcess;
-  processList?: typeof PrismaListProcess;
-  processPagination?: typeof PrismaPaginationProcess;
-  processRead?: typeof PrismaReadProcess;
-  processUpdate?: typeof PrismaUpdateProcess;
+  delegate: (prisma: PrismaService) => any;
+  processCreate?;
+  processDelete?;
+  processList?;
+  processPagination?;
+  processRead?;
+  processUpdate?;
 }
