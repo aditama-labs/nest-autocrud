@@ -5,11 +5,12 @@ export class PrismaDeleteProcess
   extends PrismaProcess
   implements DeleteProcess
 {
-  public identity;
+  public identityData;
+  public identityKey: string = 'id';
 
   async process() {
     this.result = await this.getDelegate().delete({
-      where: { id: this.identity },
+      where: { [this.identityKey]: this.identityData },
     });
   }
 }

@@ -16,9 +16,10 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  name String
-  Todo Todo[]
+  id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username String @unique
+  name     String
+  Todo     Todo[]
 
   @@map("account")
 }

@@ -5,13 +5,14 @@ export class PrismaUpdateProcess
   extends PrismaProcess
   implements UpdateProcess
 {
-  public identity;
+  public identityData;
+  public identityKey: string = 'id';
   public payload;
 
   async process() {
     this.result = await this.getDelegate().update({
       data: this.payload,
-      where: { id: this.identity },
+      where: { [this.identityKey]: this.identityData },
     });
   }
 }

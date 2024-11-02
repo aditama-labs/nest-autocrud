@@ -95,8 +95,12 @@ export const CustomCRUDController = (options?: ControllerOption) => {
     }
 
     @Delete(`:${uniqueIdentifier}`)
-    async delete(@Param(uniqueIdentifier) id) {
-      return await super.delete(id);
+    async delete(@Param(uniqueIdentifier) identityData) {
+      return await DeleteExecutor.bootstrap(
+        this.deleteProcess,
+        identityData,
+        uniqueIdentifier,
+      );
     }
 
     @Get('list')
@@ -111,13 +115,22 @@ export const CustomCRUDController = (options?: ControllerOption) => {
     }
 
     @Get(`:${uniqueIdentifier}`)
-    async read(@Param(uniqueIdentifier) id) {
-      return await super.read(id);
+    async read(@Param(uniqueIdentifier) identityData) {
+      return await ReadExecutor.bootstrap(
+        this.readProcess,
+        identityData,
+        uniqueIdentifier,
+      );
     }
 
     @Patch(`:${uniqueIdentifier}`)
-    async update(@Param(uniqueIdentifier) id, @Body() body) {
-      return await super.update(id, body);
+    async update(@Param(uniqueIdentifier) identityData, @Body() body) {
+      return await UpdateExecutor.bootstrap(
+        this.updateProcess,
+        identityData,
+        body,
+        uniqueIdentifier,
+      );
     }
   }
 
