@@ -1,21 +1,10 @@
 import {
-  PRISMA_DELEGATE,
-  PrismaReadProcess,
-  PrismaService,
+  PrismaReadProcess
 } from '@aditama-labs/nest-autocrud/prisma';
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CustomReadProcess extends PrismaReadProcess {
-  constructor(
-    @Inject(PRISMA_DELEGATE)
-    delegate,
-    @Inject()
-    private prisma: PrismaService,
-  ) {
-    super(delegate);
-  }
-
   customResult;
 
   async before(): Promise<any> {
