@@ -33,7 +33,7 @@ import {
   ISkeletonPaginationController,
   ISkeletonReadController,
   ISkeletonUpdateController,
-} from './interfaces/controller/skeleton-crud.controller.interface';
+} from '@aditama-labs/nest-autocrud/skeleton/src/interfaces';
 
 export class SkeletonDetailController implements ISkeletonReadController {
   constructor(
