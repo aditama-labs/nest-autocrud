@@ -7,13 +7,22 @@ const getDatabaseCredential = (): any => {
   const url = new URL(process.env.DATABASE_URL);
 
   // Extract the necessary components
+  let protocol;
+  switch(url.protocol){
+    case 'postgresql':
+      protocol = 'postgres';
+      break;
+    case 'mysql':
+      protocol = 'mysql';
+      break;
+  }
   const username = url.username;
   const password = url.password;
   const host = url.hostname;
   const port = url.port;
   const databaseName = url.pathname.substring(1); // Remove the leading slash
   return {
-    type: 'postgres',
+    type: protocol,
     host: host,
     port: port,
     username: username,

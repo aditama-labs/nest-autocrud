@@ -14,6 +14,8 @@
     "@aditama-labs/nest-autocrud/skeleton/(.*)": "<rootDir>/../libs/skeleton/$1",
     "@aditama-labs/nest-autocrud/skeleton": "<rootDir>/../libs/skeleton",
     "@aditama-labs/nest-autocrud/prisma/(.*)": "<rootDir>/../libs/prisma/$1",
-    "@aditama-labs/nest-autocrud/prisma": "<rootDir>/../libs/prisma"
+    "@aditama-labs/nest-autocrud/prisma": "<rootDir>/../libs/prisma",
+    "@aditama-labs/nest-autocrud/typeorm/(.*)": "<rootDir>/../libs/typeorm/src/$1",
+    "@aditama-labs/nest-autocrud/typeorm": "<rootDir>/../libs/typeorm/src"
   }
 }

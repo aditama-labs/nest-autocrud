@@ -24,6 +24,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/prisma/tsconfig.lib.json"
       }
+    },
+    "typeorm": {
+      "type": "library",
+      "root": "libs/typeorm",
+      "entryFile": "index",
+      "sourceRoot": "libs/typeorm/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/typeorm/tsconfig.lib.json"
+      }
     }
   }
 }

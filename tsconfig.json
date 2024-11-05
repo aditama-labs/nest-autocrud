@@ -29,6 +29,12 @@
       ],
       "@aditama-labs/nest-autocrud/prisma/*": [
         "libs/prisma/*"
+      ],
+      "@aditama-labs/nest-autocrud/typeorm": [
+        "libs/typeorm/src"
+      ],
+      "@aditama-labs/nest-autocrud/typeorm/*": [
+        "libs/typeorm/src/*"
       ]
     }
   }
