@@ -62,7 +62,7 @@ DATABASE_URL = 'mysql://johndoe:randompassword@localhost:3306/mydb';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
 
@@ -98,7 +98,7 @@ export class UserEntity {
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
 
