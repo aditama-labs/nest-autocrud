@@ -56,24 +56,60 @@ export class AppModule {}
 export class AppController extends SkeletonCRUDController {
   // Yes, no need to write anything here
 }
-
-// Expected Output ( As you can see the API is automatically mapped and generated )
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestFactory] Starting Nest application...
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] PrismaModule dependencies initialized +14ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] AppModule dependencies initialized +0ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RoutesResolver] AppController {/example}: +3ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example, POST} route +3ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example/:id, DELETE} route +1ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example/list, GET} route +0ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example, GET} route +1ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example/:id, GET} route +0ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/example/:id, PATCH} route +0ms
-[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestApplication] Nest application successfully started +148ms
 ```
 
 ### TypeORM
 
-_COMING SOON_
+```typescript
+// Your Entity
+@Entity('account')
+export class UserEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column({ type: String })
+  username: string;
+
+  @Column({ type: String })
+  name: string;
+}
+
+// Your Module
+@Module({
+  // This module will automatically map your model to the controller
+  imports: [
+    TypeORMModule.forRoot<UserEntity>({
+      entity: UserEntity,
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
+// Your Controller
+@Controller('examples')
+export class AppController extends SkeletonCRUDController {
+  // Yes, no need to write anything here
+}
+```
+
+### Output in Terminal
+
+```plaintext
+// Expected Output ( As you can see the API is automatically mapped and generated )
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestFactory] Starting Nest application...
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] PrismaModule dependencies initialized +14ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [InstanceLoader] AppModule dependencies initialized +0ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RoutesResolver] AppController {/examples}: +3ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples, POST} route +3ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples/:id, DELETE} route +1ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples/list, GET} route +0ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples, GET} route +1ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples/:id, GET} route +0ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [RouterExplorer] Mapped {/examples/:id, PATCH} route +0ms
+[Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestApplication] Nest application successfully started +148ms
+```
 
 ## Support
 
