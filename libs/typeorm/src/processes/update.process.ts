@@ -12,6 +12,6 @@ export class TypeORMUpdateProcess<T>
   async process() {
     this.result = await this.service
       .getRepository()
-      .update(this.uniqueWhereClause, this.payload);
+      .update(this.identityData, this.payload);
   }
 }

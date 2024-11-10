@@ -1,12 +1,25 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { DataSource, ObjectLiteral } from 'typeorm';
-import {
-  TYPEORM_DATASOURCE,
-  TYPEORM_REPOSITORY,
-  TYPEORM_WHERE_CLAUSE,
-} from './constants';
+import { TYPEORM_DATASOURCE, TYPEORM_REPOSITORY } from './constants';
 import { TypeORMModuleOptions } from './interfaces';
 import { TypeORMService } from './typeorm.service';
+import {
+  CREATE_PROCESS,
+  DELETE_PROCESS,
+  LIST_PROCESS,
+  PAGINATION_PROCESS,
+  READ_PROCESS,
+  UPDATE_PROCESS,
+} from '@aditama-labs/nest-autocrud/skeleton';
+import {
+  TypeORMCreateProcess,
+  TypeORMDeleteProcess,
+  TypeORMListProcess,
+  TypeORMPaginationProcess,
+  TypeORMReadProcess,
+  TypeORMUpdateProcess,
+} from './processes';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 const getDatabaseCredential = (
   synchronize?: boolean,
@@ -19,8 +32,9 @@ const getDatabaseCredential = (
     entityList = entities;
   }
 
-  let protocol;
-  switch (url.protocol) {
+  const defaultProtocol = url.protocol.substring(0, url.protocol.length - 1);
+  let protocol = defaultProtocol;
+  switch (defaultProtocol) {
     case 'postgresql':
       protocol = 'postgres';
       break;
@@ -49,6 +63,27 @@ const getDatabaseCredential = (
 
 @Module({})
 export class TypeORMModule {
+  private static autoPresetProvider(providers, option, key, preset) {
+    if (option) {
+      providers = [
+        ...providers,
+        {
+          provide: key,
+          useClass: option,
+        },
+      ];
+    } else {
+      providers = [
+        ...providers,
+        {
+          provide: key,
+          useClass: preset,
+        },
+      ];
+    }
+    return providers;
+  }
+
   static forRoot<T extends ObjectLiteral>(
     options: TypeORMModuleOptions<T>,
   ): DynamicModule {
@@ -65,22 +100,69 @@ export class TypeORMModule {
       },
       {
         provide: TYPEORM_REPOSITORY,
-        useFactory: (dataSource: DataSource) =>
-          dataSource.getRepository(options.entity),
+        useFactory: (dataSource: DataSource) => {
+          return dataSource.getRepository(options.entity);
+        },
         inject: [TYPEORM_DATASOURCE],
       },
     ];
 
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processCreate,
+      CREATE_PROCESS,
+      TypeORMCreateProcess,
+    );
+
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processDelete,
+      DELETE_PROCESS,
+      TypeORMDeleteProcess,
+    );
+
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processList,
+      LIST_PROCESS,
+      TypeORMListProcess,
+    );
+
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processPagination,
+      PAGINATION_PROCESS,
+      TypeORMPaginationProcess,
+    );
+
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processRead,
+      READ_PROCESS,
+      TypeORMReadProcess,
+    );
+
+    providers = TypeORMModule.autoPresetProvider(
+      providers,
+      options.processUpdate,
+      UPDATE_PROCESS,
+      TypeORMUpdateProcess,
+    );
+
     return {
       module: TypeORMModule,
-      providers: [
-        ...providers,
-        {
-          provide: TYPEORM_WHERE_CLAUSE,
-          useValue: options.uniqueWhereClause,
-        },
+      providers: [...providers],
+      exports: [
+        TYPEORM_DATASOURCE,
+        TYPEORM_REPOSITORY,
+        // List of Process
+        CREATE_PROCESS,
+        DELETE_PROCESS,
+        LIST_PROCESS,
+        PAGINATION_PROCESS,
+        READ_PROCESS,
+        UPDATE_PROCESS,
       ],
-      exports: providers,
     };
   }
 }

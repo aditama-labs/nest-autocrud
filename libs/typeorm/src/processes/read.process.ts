@@ -6,8 +6,6 @@ export class TypeORMReadProcess<T> extends TypeORMProcess<T> implements ReadProc
   public identityKey: string = 'id';
 
   async process() {
-    this.result = await this.service.getRepository().findOne({
-      where: this.uniqueWhereClause,
-    });
+    this.result = await this.service.getRepository().findOne(this.identityData);
   }
 }
