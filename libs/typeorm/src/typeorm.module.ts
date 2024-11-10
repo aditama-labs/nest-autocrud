@@ -1,9 +1,12 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { TypeormService } from './typeorm.service';
+import { DataSource, ObjectLiteral } from 'typeorm';
+import {
+  TYPEORM_DATASOURCE,
+  TYPEORM_REPOSITORY,
+  TYPEORM_WHERE_CLAUSE,
+} from './constants';
 import { TypeORMModuleOptions } from './interfaces';
-import { ConfigurableModuleClass } from './config.module-definition';
-import { DataSource } from 'typeorm';
-import { TYPEORM_DATASOURCE, TYPEORM_REPOSITORY } from './constants';
+import { TypeORMService } from './typeorm.service';
 
 const getDatabaseCredential = (
   synchronize?: boolean,
@@ -44,13 +47,13 @@ const getDatabaseCredential = (
   };
 };
 
-@Module({
-  providers: [TypeormService],
-  exports: [TypeormService],
-})
-export class TypeORMModule<T> extends ConfigurableModuleClass {
-  static forRoot(options: TypeORMModuleOptions): DynamicModule {
+@Module({})
+export class TypeORMModule {
+  static forRoot<T extends ObjectLiteral>(
+    options: TypeORMModuleOptions<T>,
+  ): DynamicModule {
     let providers = [
+      TypeORMService,
       {
         provide: TYPEORM_DATASOURCE,
         useFactory: async () => {
@@ -69,8 +72,15 @@ export class TypeORMModule<T> extends ConfigurableModuleClass {
     ];
 
     return {
-      ...super.forRoot(options),
-      providers,
+      module: TypeORMModule,
+      providers: [
+        ...providers,
+        {
+          provide: TYPEORM_WHERE_CLAUSE,
+          useValue: options.uniqueWhereClause,
+        },
+      ],
+      exports: providers,
     };
   }
 }

@@ -11,6 +11,7 @@ export class CustomReadProcess extends PrismaReadProcess {
     console.log(await this.prisma.user.findMany());
     console.log('The ID requested in path parameter', this.identityData);
   }
+  
   async after(): Promise<any> {
     this.customResult = {
       ...super.output(),
