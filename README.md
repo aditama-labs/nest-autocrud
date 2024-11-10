@@ -35,6 +35,18 @@ $ npm install @aditama-labs/nest-autocrud
 
 ## Example
 
+### Environment Variable
+
+```typescript
+// Yes, either Prisma or TypeORM just need this single line of ENV
+
+// PostgreSQL Example
+DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+
+// MySQL Example
+DATABASE_URL="mysql://johndoe:randompassword@localhost:3306/mydb"
+```
+
 ### Prisma ORM
 
 ```typescript
