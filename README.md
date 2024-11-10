@@ -16,6 +16,8 @@ This project is still in development and not ready for production, it's not even
 
 Nest Auto CRUD is a library that provides a set of modules, decorator, service, and many more to reduce the boilerplate code.
 
+**I will make the API with backward compatibility, so don't worry about upgrading version**
+
 ## Roadmap
 
 ### Basic Thing
@@ -41,10 +43,11 @@ $ npm install @aditama-labs/nest-autocrud
 // Yes, either Prisma or TypeORM just need this single line of ENV
 
 // PostgreSQL Example
-DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+DATABASE_URL =
+  'postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public';
 
 // MySQL Example
-DATABASE_URL="mysql://johndoe:randompassword@localhost:3306/mydb"
+DATABASE_URL = 'mysql://johndoe:randompassword@localhost:3306/mydb';
 ```
 
 ### Prisma ORM
