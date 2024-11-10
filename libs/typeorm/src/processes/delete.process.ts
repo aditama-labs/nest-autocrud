@@ -9,6 +9,8 @@ export class TypeORMDeleteProcess<T>
   public identityKey: string = 'id';
 
   async process() {
-    this.result = await this.service.getRepository().delete(this.identityData);
+    this.result = await this.service.getRepository().delete(<any>{
+      [this.identityKey]: this.identityData,
+    });
   }
 }

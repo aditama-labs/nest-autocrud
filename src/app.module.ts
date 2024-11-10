@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { CustomModule } from './example/prisma/custom/custom.module';
-import { SimpleModule } from './example/prisma/simple/simple.module';
-import { SimpleTypeORMModule } from './example/typeorm/simple.module';
+import { PrismaCustomModule } from './example/prisma/custom/custom.module';
+import { PrismaSimpleModule } from './example/prisma/simple/simple.module';
+import { TypeORMSimpleModule } from './example/typeorm/simple/simple.module';
+import { TypeORMCustomModule } from './example/typeorm/custom/custom.module';
 
 @Module({
-  imports: [SimpleTypeORMModule],
+  imports: [
+    PrismaCustomModule,
+    PrismaSimpleModule,
+    TypeORMSimpleModule,
+    TypeORMCustomModule,
+  ],
   controllers: [],
   providers: [],
 })

@@ -1,7 +1,7 @@
 import { PrismaModule } from '@aditama-labs/nest-autocrud/prisma';
 import { Module } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { SimpleController } from './simple.controller';
+import { PrismaSimpleController } from './simple.controller';
 
 @Module({
   imports: [
@@ -9,7 +9,7 @@ import { SimpleController } from './simple.controller';
       delegate: (prisma: PrismaClient) => prisma.user,
     }),
   ],
-  controllers: [SimpleController],
+  controllers: [PrismaSimpleController],
   providers: [],
 })
-export class SimpleModule {}
+export class PrismaSimpleModule {}

@@ -1,7 +1,7 @@
 import { TypeORMModule } from '@aditama-labs/nest-autocrud/typeorm';
 import { Module } from '@nestjs/common';
-import { SimpleTypeORMController } from './simple.controller';
 import { UserEntity } from './entities/user.entity';
+import { TypeORMSimpleController } from './simple.controller';
 
 @Module({
   imports: [
@@ -9,7 +9,7 @@ import { UserEntity } from './entities/user.entity';
       entity: UserEntity,
     }),
   ],
-  controllers: [SimpleTypeORMController],
+  controllers: [TypeORMSimpleController],
   providers: [],
 })
-export class SimpleTypeORMModule {}
+export class TypeORMSimpleModule {}

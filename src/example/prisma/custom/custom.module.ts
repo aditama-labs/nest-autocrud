@@ -1,7 +1,7 @@
 import { PrismaModule } from '@aditama-labs/nest-autocrud/prisma';
 import { Module } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { CustomController } from './custom.controller';
+import { PrismaCustomController } from './custom.controller';
 import { CustomListProcess } from './domain/custom.list.process';
 import { CustomReadProcess } from './domain/custom.read.process';
 
@@ -13,7 +13,7 @@ import { CustomReadProcess } from './domain/custom.read.process';
       processRead: CustomReadProcess,
     }),
   ],
-  controllers: [CustomController],
+  controllers: [PrismaCustomController],
   providers: [],
 })
-export class CustomModule {}
+export class PrismaCustomModule {}

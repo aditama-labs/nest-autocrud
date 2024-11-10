@@ -10,8 +10,11 @@ export class TypeORMUpdateProcess<T>
   public payload;
 
   async process() {
-    this.result = await this.service
-      .getRepository()
-      .update(this.identityData, this.payload);
+    this.result = await this.service.getRepository().update(
+      <any>{
+        [this.identityKey]: this.identityData,
+      },
+      this.payload,
+    );
   }
 }
