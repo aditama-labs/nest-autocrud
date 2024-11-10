@@ -1,8 +1,3 @@
-import { DynamicModule, Module } from '@nestjs/common';
-import { DataSource, ObjectLiteral } from 'typeorm';
-import { TYPEORM_DATASOURCE, TYPEORM_REPOSITORY } from './constants';
-import { TypeORMModuleOptions } from './interfaces';
-import { TypeORMService } from './typeorm.service';
 import {
   CREATE_PROCESS,
   DELETE_PROCESS,
@@ -11,6 +6,10 @@ import {
   READ_PROCESS,
   UPDATE_PROCESS,
 } from '@aditama-labs/nest-autocrud/skeleton';
+import { DynamicModule, Module } from '@nestjs/common';
+import { DataSource, ObjectLiteral } from 'typeorm';
+import { TYPEORM_DATASOURCE, TYPEORM_REPOSITORY } from './constants';
+import { TypeORMModuleOptions } from './interfaces';
 import {
   TypeORMCreateProcess,
   TypeORMDeleteProcess,
@@ -19,18 +18,13 @@ import {
   TypeORMReadProcess,
   TypeORMUpdateProcess,
 } from './processes';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeORMService } from './typeorm.service';
 
 const getDatabaseCredential = (
   synchronize?: boolean,
   entities?: string[],
 ): any => {
   const url = new URL(process.env.DATABASE_URL);
-
-  let entityList = [__dirname + '/../**/*.entity{.ts,.js}'];
-  if (entities) {
-    entityList = entities;
-  }
 
   const defaultProtocol = url.protocol.substring(0, url.protocol.length - 1);
   let protocol = defaultProtocol;
@@ -56,7 +50,7 @@ const getDatabaseCredential = (
     username: username,
     password: password,
     database: databaseName,
-    entities: entityList,
+    entities,
     synchronize: synchronize ?? false,
   };
 };
@@ -93,7 +87,10 @@ export class TypeORMModule {
         provide: TYPEORM_DATASOURCE,
         useFactory: async () => {
           const dataSource = new DataSource(
-            getDatabaseCredential(options.synchronize, options.entities),
+            getDatabaseCredential(options.synchronize, [
+              options.entity,
+              ...(options.entities ?? []),
+            ]),
           );
           return dataSource.initialize();
         },

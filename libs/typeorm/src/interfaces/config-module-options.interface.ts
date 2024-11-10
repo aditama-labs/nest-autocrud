@@ -9,5 +9,5 @@ export interface TypeORMModuleOptions<T extends ObjectLiteral> {
   processRead?;
   processUpdate?;
   synchronize?: boolean;
-  entities?: string[];
+  entities?: any[];
 }
