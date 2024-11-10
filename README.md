@@ -16,7 +16,7 @@ This project is still in development and not ready for production, it's not even
 
 Nest Auto CRUD is a library that provides a set of modules, decorator, service, and many more to reduce the boilerplate code.
 
-**I will make the API with backward compatibility, so don't worry about upgrading version**
+**I will make the API backward compatible, so you don't need to worry about upgrading the version**
 
 ## Roadmap
 
