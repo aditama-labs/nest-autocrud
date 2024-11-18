@@ -6,4 +6,6 @@ export class UpdateProcess extends DefaultProcess {
   public identityKey: string = 'id';
   // @TODO: The property of data can be take from CreateProcess which is extended
   public payload;
+  // @TODO: The property of isDraft can be take from CreateProcess which is extended
+  public isDraft: boolean = false;
 }
