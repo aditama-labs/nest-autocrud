@@ -1,7 +1,7 @@
 @echo off
 
 echo Running npm run build:libs
-npm run build:libs
+call npm run build:libs
 
 echo Copying package.json to plugins
 copy package.json .\plugins
@@ -13,7 +13,7 @@ echo Changing working directory to plugins
 cd plugins
 
 echo Publishing...
-npm publish
+call npm publish
 
 echo Cleaning up...
 cd ..
