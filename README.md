@@ -35,6 +35,30 @@ Nest Auto CRUD is a library that provides a set of modules, decorator, service, 
 $ npm install @aditama-labs/nest-autocrud
 ```
 
+## Known Issue for Prisma User
+
+### Default Generated Schema ( First Setup Project )
+
+Please remove `output` from your first generated prisma schema or you can't running the backend because `nest-autocrud` cannot find it, so instead it will stored in `node_modules`.
+
+```prisma
+generator client {
+  provider        = "prisma-client-js"
+  // This `output` property should be removed
+  output          = "../generated/prisma"
+}
+```
+
+### This is fixed version of the schema
+
+```prisma
+generator client {
+  provider        = "prisma-client-js"
+}
+```
+
+In summary you must delete `output` property from the schema
+
 ## Example
 
 ### Environment Variable
