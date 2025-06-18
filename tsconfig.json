@@ -35,6 +35,12 @@
       ],
       "@aditama-labs/nest-autocrud/typeorm/*": [
         "libs/typeorm/src/*"
+      ],
+      "@aditama-labs/nest-autocrud/utils": [
+        "libs/utils/src"
+      ],
+      "@aditama-labs/nest-autocrud/utils/*": [
+        "libs/utils/src/*"
       ]
     }
   }

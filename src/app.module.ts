@@ -4,6 +4,7 @@ import { PrismaSimpleModule } from './example/prisma/simple/simple.module';
 import { TypeORMSimpleModule } from './example/typeorm/simple/simple.module';
 import { TypeORMCustomModule } from './example/typeorm/custom/custom.module';
 import { ConfigModule } from '@nestjs/config';
+import { SequelizeCustomModule } from './example/sequelize/custom/sequelize.module';
 
 @Module({
   imports: [
@@ -12,8 +13,9 @@ import { ConfigModule } from '@nestjs/config';
     PrismaSimpleModule,
     TypeORMSimpleModule,
     TypeORMCustomModule,
+    SequelizeCustomModule,
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

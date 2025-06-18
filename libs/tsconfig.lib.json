@@ -17,6 +17,7 @@
     "index.ts",
     "prisma/**/*",
     "skeleton/**/*",
+    "utils/**/*",
   ],
   "exclude": [
     "node_modules",

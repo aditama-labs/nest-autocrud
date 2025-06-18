@@ -19,41 +19,7 @@ import {
   TypeORMUpdateProcess,
 } from './processes';
 import { TypeORMService } from './typeorm.service';
-
-const getDatabaseCredential = (
-  synchronize?: boolean,
-  entities?: string[],
-): any => {
-  const url = new URL(process.env.DATABASE_URL);
-
-  const defaultProtocol = url.protocol.substring(0, url.protocol.length - 1);
-  let protocol = defaultProtocol;
-  switch (defaultProtocol) {
-    case 'postgresql':
-      protocol = 'postgres';
-      break;
-    case 'mysql':
-      protocol = 'mysql';
-      break;
-  }
-
-  // Extract the necessary components
-  const username = url.username;
-  const password = url.password;
-  const host = url.hostname;
-  const port = url.port;
-  const databaseName = url.pathname.substring(1); // Remove the leading slash
-  return {
-    type: protocol,
-    host: host,
-    port: port,
-    username: username,
-    password: password,
-    database: databaseName,
-    entities,
-    synchronize: synchronize ?? false,
-  };
-};
+import { Credential } from '@aditama-labs/nest-autocrud/utils';
 
 @Module({})
 export class TypeORMModule {
@@ -87,7 +53,7 @@ export class TypeORMModule {
         provide: TYPEORM_DATASOURCE,
         useFactory: async () => {
           const dataSource = new DataSource(
-            getDatabaseCredential(options.synchronize, [
+            new Credential(process.env.DATABASE_URL).toTypeOrmConfig(options.synchronize, [
               options.entity,
               ...(options.entities ?? []),
             ]),
