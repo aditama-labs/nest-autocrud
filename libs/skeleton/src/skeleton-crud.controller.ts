@@ -1,4 +1,12 @@
 import {
+  ISkeletonCreateController,
+  ISkeletonCRUDController,
+  ISkeletonListController,
+  ISkeletonPaginationController,
+  ISkeletonReadController,
+  ISkeletonUpdateController,
+} from '@aditama-labs/nest-autocrud/skeleton/src/interfaces';
+import {
   Body,
   Delete,
   Get,
@@ -7,6 +15,7 @@ import {
   Patch,
   Post,
   Query,
+  Res,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -26,14 +35,6 @@ import { ListExecutor } from './executors/list.executor';
 import { ReadExecutor } from './executors/read.executor';
 import { UpdateExecutor } from './executors/update.executor';
 import { ControllerOption } from './interfaces/controller/controller.option';
-import {
-  ISkeletonCreateController,
-  ISkeletonCRUDController,
-  ISkeletonListController,
-  ISkeletonPaginationController,
-  ISkeletonReadController,
-  ISkeletonUpdateController,
-} from '@aditama-labs/nest-autocrud/skeleton/src/interfaces';
 
 export class SkeletonDetailController implements ISkeletonReadController {
   constructor(
@@ -170,11 +171,28 @@ export class SkeletonCRUDController implements ISkeletonCRUDController {
   async list() {
     return await ListExecutor.bootstrap(this.listProcess);
   }
-
   @Get()
   @UsePipes(new ValidationPipe({ transform: true }))
-  async pagination(@Query() params: PaginationParamDTO) {
-    return await PaginationExecutor.bootstrap(this.paginationProcess, params);
+  async pagination(
+    @Query() params: PaginationParamDTO,
+    @Res({ passthrough: true }) res: any,
+  ) {
+    const result = await PaginationExecutor.bootstrap(
+      this.paginationProcess,
+      params,
+    );
+
+    // Set the total count header for both Express and Fastify
+    if (this.paginationProcess.total !== undefined) {
+      res.header
+        ? res.header('X-Total-Count', this.paginationProcess.total.toString())
+        : res.setHeader(
+            'X-Total-Count',
+            this.paginationProcess.total.toString(),
+          );
+    }
+
+    return result;
   }
 
   @Get(':id')
@@ -222,8 +240,11 @@ export const CustomCRUDController = (options?: ControllerOption) => {
 
     @Get()
     @UsePipes(new ValidationPipe({ transform: true }))
-    async pagination(@Query() params: PaginationParamDTO) {
-      return await super.pagination(params);
+    async pagination(
+      @Query() params: PaginationParamDTO,
+      @Res({ passthrough: true }) res: any,
+    ) {
+      return await super.pagination(params, res);
     }
 
     @Get(`:${uniqueIdentifier}`)

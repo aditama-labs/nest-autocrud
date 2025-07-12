@@ -6,11 +6,15 @@ export class TypeORMPaginationProcess<T>
   extends TypeORMProcess<T>
   implements PaginationProcess
 {
+  total: number;
   params: IPaginationParam;
 
   async process() {
     const { page, limit } = this.params;
     const skip = (page - 1) * limit;
+
+    // Get total count
+    this.total = await this.service.getRepository().count();
 
     this.result = await this.service.getRepository().find({
       skip,
