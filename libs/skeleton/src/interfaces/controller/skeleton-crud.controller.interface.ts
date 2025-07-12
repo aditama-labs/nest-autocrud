@@ -1,7 +1,7 @@
 import { IPaginationParam } from '../pagination-param.interface';
 
 export interface ISkeletonPaginationController {
-  pagination(params: IPaginationParam);
+  pagination(params: IPaginationParam, res: any);
 }
 
 export interface ISkeletonListController {
