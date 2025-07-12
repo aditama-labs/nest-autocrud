@@ -11,6 +11,7 @@ import { CustomReadProcess } from './domain/custom.read.process';
       delegate: (prisma: PrismaClient) => prisma.user,
       processList: CustomListProcess,
       processRead: CustomReadProcess,
+      relation: ['Todo'],
     }),
   ],
   controllers: [PrismaCustomController],
