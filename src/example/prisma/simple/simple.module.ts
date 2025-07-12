@@ -7,7 +7,6 @@ import { PrismaSimpleController } from './simple.controller';
   imports: [
     PrismaModule.forRoot({
       delegate: (prisma: PrismaClient) => prisma.user,
-      relation: ['Todo'],
     }),
   ],
   controllers: [PrismaSimpleController],

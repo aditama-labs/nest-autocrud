@@ -6,7 +6,16 @@ export class CustomListProcess extends PrismaListProcess {
   }
 
   output() {
-    console.log('You can modify the output here');
+    this.result = this.result.map((item) => {
+      // Custom logic to modify each item in the result
+      const temp = {
+        ...item,
+        todo: item['Todo'],
+      };
+      // Remove the 'Todo' relation from the result
+      delete temp['Todo'];
+      return temp;
+    });
     return super.output();
   }
 }
