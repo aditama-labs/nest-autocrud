@@ -4,3 +4,4 @@ export * from './interfaces';
 export * from './prisma.module';
 export * from './prisma.service';
 export * from './processes';
+export * from './utils';

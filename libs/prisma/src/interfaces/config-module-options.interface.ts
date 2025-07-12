@@ -11,4 +11,6 @@ export interface PrismaModuleOptions {
   processPagination?;
   processRead?;
   processUpdate?;
+  // This is used for relation
+  relation?: string[];
 }

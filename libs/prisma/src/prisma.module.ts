@@ -8,7 +8,7 @@ import {
 } from '@aditama-labs/nest-autocrud/skeleton';
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigurableModuleClass } from './config.module-definition';
-import { PRISMA_DELEGATE } from './constants';
+import { PRISMA_DELEGATE, PRISMA_RELATION } from './constants';
 import { PrismaModuleOptions } from './interfaces/config-module-options.interface';
 import { PrismaService } from './prisma.service';
 import {
@@ -64,6 +64,10 @@ export class PrismaModule extends ConfigurableModuleClass {
         provide: PRISMA_DELEGATE,
         useFactory: options.delegate,
         inject: [PrismaService],
+      },
+      {
+        provide: PRISMA_RELATION,
+        useValue: options.relation || [],
       },
     ];
 
