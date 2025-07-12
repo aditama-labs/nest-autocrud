@@ -150,6 +150,11 @@ export class AppController extends SkeletonCRUDController {
 [Nest] 125875  - 10/30/2024, 10:57:56 PM     LOG [NestApplication] Nest application successfully started +148ms
 ```
 
+## FAQ
+
+- How to implement Authentication?
+  - For Prisma please check the [Auth Basic with Prisma and Nest AutoCRUD](https://github.com/aditama-labs/nest-autocrud/tree/master/src/example/prisma/auth/basic).
+
 ## Support
 
 Nest AutoCRUD is an MIT-licensed open source project.

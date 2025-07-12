@@ -16,6 +16,8 @@ export class PrismaBasicAuthProcess extends AuthProcess {
     super(jwtService);
   }
 
+  // There is no standard validate so even Nest AutoCRUD does not provide it by default.
+  // We can help you to give an example of how to implement it.
   async validate(): Promise<boolean> {
     const user = await this.delegate.findUnique({
       where: { username: this.payload.username },
