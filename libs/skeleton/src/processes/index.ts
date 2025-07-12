@@ -1,3 +1,4 @@
+export * from './auth.process';
 export * from './create.process';
 export * from './default.process';
 export * from './delete.process';

@@ -18,6 +18,7 @@ datasource db {
 model User {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   username String @unique
+  password String
   name     String
   Todo     Todo[]
 
