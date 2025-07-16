@@ -34,3 +34,13 @@ For the controller side, we have predefined controllers and routes for common us
 - `SkeletonPaginationController` for paginating resources.
 - `SkeletonDetailController` for getting a single resource by ID.
 - `CustomCRUDController` for custom identifiers but the rest is same as `SkeletonCRUDController`.
+
+Each core library must be stored in `libs/skeleton` directory, anything outside of `skeleton` directory is considered as an extension of the core library.
+
+Each processor has a lifecycle, which is a series of steps that the processor goes through to process the data, such as:
+
+- `initialization`: This is the first step of the lifecycle, where the processor is initialized with the necessary dependencies and configurations.
+- `before`: This step is executed before the main processing logic, where you can perform any necessary preparations or validations.
+- `process`: This is the main processing logic, where the processor performs the actual data processing.
+- `after`: This step is executed after the main processing logic, where you can perform any necessary cleanup or finalization.
+- `output`: This is the final step of the lifecycle, where the processor returns the processed data to the client.
