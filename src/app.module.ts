@@ -4,6 +4,7 @@ import { PrismaSimpleModule } from './example/prisma/simple/simple.module';
 import { TypeORMSimpleModule } from './example/typeorm/simple/simple.module';
 import { TypeORMCustomModule } from './example/typeorm/custom/custom.module';
 import { ConfigModule } from '@nestjs/config';
+import { DraftExampleModule } from './example/draft/draft-example.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { ConfigModule } from '@nestjs/config';
     PrismaSimpleModule,
     TypeORMSimpleModule,
     TypeORMCustomModule,
+    DraftExampleModule,
   ],
   controllers: [],
   providers: [],
