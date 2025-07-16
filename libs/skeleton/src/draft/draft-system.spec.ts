@@ -108,9 +108,11 @@ describe('DraftSystem', () => {
   it('should delete all drafts for an entity', async () => {
     const entityId = 'test-entity-4';
 
-    // Save multiple drafts
+    // Save multiple drafts with delays to ensure unique timestamps
     await draftService.saveDraft(entityId, { version: 1 });
+    await new Promise((resolve) => setTimeout(resolve, 10));
     await draftService.saveDraft(entityId, { version: 2 });
+    await new Promise((resolve) => setTimeout(resolve, 10));
     await draftService.saveDraft(entityId, { version: 3 });
 
     // Verify drafts are saved
