@@ -16,7 +16,7 @@ export function DraftableMixin<TBase extends Constructor<ISkeletonProcess>>(
   BaseClass: TBase,
 ) {
   return class extends BaseClass {
-    protected draftService: DraftService = DraftService.getInstance();
+    public draftService: DraftService = DraftService.getInstance();
 
     /**
      * Determines if the current operation should be saved as a draft
